@@ -202,6 +202,29 @@ class Leetcode:
                 break
         return result
 
+    # 15: /problems/3sum
+    @staticmethod
+    def three_sum(nums: [int]) -> [[int]]:
+        import bisect
+        ref, res = {}, []
+        for i in nums:
+            ref[i] = ref[i] + 1 if i in ref else 1
+        nums = sorted(ref)
+        for i, x in enumerate(nums):
+            if not x:
+                if ref[x] > 2:
+                    res.append([0, 0, 0])
+            elif ref[x] > 1 and -2 * x in ref:
+                res.append([x, x, -2 * x])
+            if x < 0:
+                left = bisect.bisect_left(nums, -x - nums[-1], i + 1)
+                right = bisect.bisect_right(nums, -x // 2, left)
+                for y in nums[left:right]:
+                    z = -x - y
+                    if z in ref and z != y:
+                        res.append([x, y, z])
+        return res
+
     # 16: /problems/3sum-closest/
     @staticmethod
     def three_sum_closest(nums: [int], target: int) -> int:
