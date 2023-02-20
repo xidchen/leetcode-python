@@ -37,13 +37,12 @@ class Leetcode:
         ss, ll, cl = '', 0, 0
         for x in s:
             if x in ss:
-                ss = ss[ss.index(x)+1:] + x
+                ss = ss[ss.index(x) + 1:] + x
                 cl = len(ss)
             else:
                 ss += x
                 cl += 1
-                if ll < cl:
-                    ll = cl
+                ll = cl if cl > ll else ll
         return ll
 
     # 4: /problems/median-of-two-sorted-arrays/
@@ -51,11 +50,9 @@ class Leetcode:
     def find_median_sorted_arrays(nums1: [int], nums2: [int]) -> float:
         nums = sorted(nums1 + nums2)
         if len(nums) % 2:
-            median = nums[int((len(nums) + 1) / 2) - 1]
+            return nums[len(nums) // 2]
         else:
-            median = (nums[int(len(nums) / 2) - 1] + nums[
-                int(len(nums) / 2 + 1) - 1]) / 2
-        return median
+            return (nums[len(nums) // 2 - 1] + nums[len(nums) // 2]) / 2
 
     # 5: /problems/longest-palindromic-substring/
     @staticmethod
