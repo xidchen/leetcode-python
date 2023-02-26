@@ -204,8 +204,8 @@ class Leetcode:
     def three_sum(nums: [int]) -> [[int]]:
         import bisect
         ref, res = {}, []
-        for i in nums:
-            ref[i] = ref[i] + 1 if i in ref else 1
+        for n in nums:
+            ref[n] = ref[n] + 1 if n in ref else 1
         nums = sorted(ref)
         for i, x in enumerate(nums):
             if not x:
@@ -228,7 +228,7 @@ class Leetcode:
         n = len(nums)
         nums.sort()
         res = sum(nums[:3])
-        for i in range(len(nums) - 2):
+        for i in range(n - 2):
             j, k = i + 1, n - 1
             if nums[i] + nums[j] + nums[j + 1] >= target:
                 k = j + 1
@@ -249,8 +249,8 @@ class Leetcode:
     # 17: /problems/letter-combinations-of-a-phone-number/
     @staticmethod
     def letter_combination(digits: str) -> [str]:
-        phone = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno',
-                 '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
+        phone = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',
+                 '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
         res = []
 
         def backtrack(combination, d):
@@ -270,7 +270,7 @@ class Leetcode:
 
         def k_sum(n: [int], t: int, k: int) -> [[int]]:
             res = []
-            if len(n) == 0 or t < n[0] * k or n[-1] * k < t:
+            if len(n) < k or t < n[0] * k or n[-1] * k < t:
                 return res
             if k == 2:
                 return two_sum(n, t)
@@ -379,14 +379,6 @@ class Leetcode:
                     start, cnt, tmp_dict = j+wl, 0, {}
         return res
 
-    # 35: /problems/search-insert-position/
-    @staticmethod
-    def search_insert(nums: [str], target: int) -> int:
-        for i in range(len(nums)):
-            if target <= nums[i]:
-                return i
-        return len(nums)
-
     # 29: /problems/divide-two-integers/
     @staticmethod
     def divide(dividend: int, divisor: int) -> int:
@@ -400,9 +392,16 @@ class Leetcode:
                 res += i
                 temp <<= 1
                 i <<= 1
-        if not positive:
-            res = -res
-        return min(max(-2**31, res), 2**31-1)
+        res = res if positive else -res
+        return min(max(-2 ** 31, res), 2 ** 31 - 1)
+
+    # 35: /problems/search-insert-position/
+    @staticmethod
+    def search_insert(nums: [str], target: int) -> int:
+        for i in range(len(nums)):
+            if target <= nums[i]:
+                return i
+        return len(nums)
 
     # 38: /problems/count-and-say/
     @staticmethod
