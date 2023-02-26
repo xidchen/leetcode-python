@@ -350,35 +350,6 @@ class Leetcode:
     def str_str(haystack: str, needle: str) -> int:
         return haystack.index(needle) if needle in haystack else -1
 
-    # 30: /problems/substring-with-concatenation-of-all-words/
-    @staticmethod
-    def find_substring(s: str, words: [str]) -> [int]:
-        res = []
-        if not words or len(s) < len(words) * len(words[0]):
-            return res
-        wc, wl, sl, wd = len(words), len(words[0]), len(s), {}
-        for w in words:
-            wd[w] = wd.get(w, 0) + 1
-        for i in range(wl):
-            start, cnt, tmp_dict = i, 0, {}
-            for j in range(i, sl-wl+1, wl):
-                word = s[j: j+wl]
-                if wd.get(word):
-                    cnt += 1
-                    tmp_dict[word] = tmp_dict.get(word, 0) + 1
-                    while tmp_dict[word] > wd[word]:
-                        tmp_dict[s[start: start+wl]] -= 1
-                        start += wl
-                        cnt -= 1
-                    if cnt == wc:
-                        res.append(start)
-                        tmp_dict[s[start: start+wl]] -= 1
-                        start += wl
-                        cnt -= 1
-                else:
-                    start, cnt, tmp_dict = j+wl, 0, {}
-        return res
-
     # 29: /problems/divide-two-integers/
     @staticmethod
     def divide(dividend: int, divisor: int) -> int:
@@ -394,6 +365,49 @@ class Leetcode:
                 i <<= 1
         res = res if positive else -res
         return min(max(-2 ** 31, res), 2 ** 31 - 1)
+
+    # 30: /problems/substring-with-concatenation-of-all-words/
+    @staticmethod
+    def find_substring(s: str, words: [str]) -> [int]:
+        res = []
+        if not words or len(s) < len(words) * len(words[0]):
+            return res
+        wc, wl, sl, wd = len(words), len(words[0]), len(s), {}
+        for w in words:
+            wd[w] = wd.get(w, 0) + 1
+        for i in range(wl):
+            start, cnt, tmp_dict = i, 0, {}
+            for j in range(i, sl - wl + 1, wl):
+                word = s[j:j + wl]
+                if wd.get(word):
+                    cnt += 1
+                    tmp_dict[word] = tmp_dict.get(word, 0) + 1
+                    while tmp_dict[word] > wd[word]:
+                        tmp_dict[s[start:start + wl]] -= 1
+                        start += wl
+                        cnt -= 1
+                    if cnt == wc:
+                        res.append(start)
+                        tmp_dict[s[start:start + wl]] -= 1
+                        start += wl
+                        cnt -= 1
+                else:
+                    start, cnt, tmp_dict = j + wl, 0, {}
+        return res
+
+    # 31: problems/next-permutation/
+    @staticmethod
+    def next_permutation(nums: [int]) -> None:
+        i = len(nums) - 2
+        while i >= 0 and nums[i + 1] <= nums[i]:
+            i -= 1
+        if i >= 0:
+            j = len(nums) - 1
+            while nums[j] <= nums[i]:
+                j -= 1
+            (nums[i], nums[j]) = (nums[j], nums[i])
+        nums[::] = nums[:i + 1] + nums[i + 1:][::-1]
+        return None
 
     # 35: /problems/search-insert-position/
     @staticmethod
