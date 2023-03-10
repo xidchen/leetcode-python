@@ -395,7 +395,7 @@ class Leetcode:
                     start, cnt, tmp_dict = j + wl, 0, {}
         return res
 
-    # 31: problems/next-permutation/
+    # 31: /problems/next-permutation/
     @staticmethod
     def next_permutation(nums: [int]) -> None:
         i = len(nums) - 2
@@ -408,6 +408,22 @@ class Leetcode:
             (nums[i], nums[j]) = (nums[j], nums[i])
         nums[::] = nums[:i + 1] + nums[i + 1:][::-1]
         return None
+
+    # 32: /problems/longest-valid-parentheses/
+    @staticmethod
+    def longest_valid_parentheses(s: str) -> int:
+        max_length = 0
+        stack = [-1]
+        for i in range(len(s)):
+            if s[i] == '(':
+                stack.append(i)
+            else:
+                stack.pop()
+                if not stack:
+                    stack.append(i)
+                else:
+                    max_length = max(max_length, i - stack[-1])
+        return max_length
 
     # 35: /problems/search-insert-position/
     @staticmethod
