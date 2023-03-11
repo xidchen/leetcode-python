@@ -533,3 +533,10 @@ class Leetcode:
         if root:
             return is_mirror(root.left, root.right)
         return True
+
+    # 1480: /problems/running-sum-of-1d-array/
+    @staticmethod
+    def running_sum(nums: [int]) -> [int]:
+        for i in range(1, len(nums)):
+            nums[i] += nums[i - 1]
+        return nums
