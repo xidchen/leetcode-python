@@ -534,6 +534,17 @@ class Leetcode:
             return is_mirror(root.left, root.right)
         return True
 
+    # 724: /problems/find-pivot-index/
+    @staticmethod
+    def pivot_index(nums: [int]) -> int:
+        sum_l, sum_r = 0, sum(nums)
+        for i, num in enumerate(nums):
+            sum_r -= num
+            if sum_l == sum_r:
+                return i
+            sum_l += num
+        return -1
+
     # 1480: /problems/running-sum-of-1d-array/
     @staticmethod
     def running_sum(nums: [int]) -> [int]:
