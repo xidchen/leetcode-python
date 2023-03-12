@@ -549,6 +549,17 @@ class Leetcode:
                 return False
         return True
 
+    # 392: /problems/is-subsequence/
+    @staticmethod
+    def is_subsequence(s: str, t: str) -> bool:
+        i_t = -1
+        for c in s:
+            try:
+                i_t = t.index(c, i_t + 1, len(t))
+            except ValueError:
+                return False
+        return True
+
     # 724: /problems/find-pivot-index/
     @staticmethod
     def pivot_index(nums: [int]) -> int:
