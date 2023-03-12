@@ -534,6 +534,21 @@ class Leetcode:
             return is_mirror(root.left, root.right)
         return True
 
+    # 205: /problems/isomorphic-strings/
+    @staticmethod
+    def isomorphic_strings(s: str, t: str) -> bool:
+        d_s, d_t = {}, {}
+        for c_s, c_t in zip(s, t):
+            if c_s not in d_s:
+                d_s[c_s] = c_t
+            elif d_s[c_s] != c_t:
+                return False
+            if c_t not in d_t:
+                d_t[c_t] = c_s
+            elif d_t[c_t] != c_s:
+                return False
+        return True
+
     # 724: /problems/find-pivot-index/
     @staticmethod
     def pivot_index(nums: [int]) -> int:
