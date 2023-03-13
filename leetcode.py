@@ -564,6 +564,18 @@ class Leetcode:
                 return False
         return True
 
+    # 206: /problems/reverse-linked-list/
+    @staticmethod
+    def reverse_list(head: ListNode) -> ListNode:
+        prev = None
+        curr = head
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        return prev
+
     # 392: /problems/is-subsequence/
     @staticmethod
     def is_subsequence(s: str, t: str) -> bool:
