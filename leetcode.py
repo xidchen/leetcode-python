@@ -598,6 +598,18 @@ class Leetcode:
             sum_l += num
         return -1
 
+    # 876: /problems/middle-of-the-linked-list/
+    @staticmethod
+    def middle_node(head: ListNode) -> ListNode:
+        dummy = temp = head
+        i = 0
+        while temp:
+            temp = temp.next
+            i += 1
+        for _ in range(i // 2):
+            dummy = dummy.next
+        return dummy
+
     # 1480: /problems/running-sum-of-1d-array/
     @staticmethod
     def running_sum(nums: [int]) -> [int]:
