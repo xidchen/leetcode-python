@@ -549,6 +549,20 @@ class Leetcode:
             return is_mirror(root.left, root.right)
         return True
 
+    # 142: /problems/linked-list-cycle-ii/
+    @staticmethod
+    def detect_cycle(head: ListNode) -> ListNode:
+        fast = slow = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                fast = head
+                while fast != slow:
+                    fast = fast.next
+                    slow = slow.next
+                return fast
+
     # 205: /problems/isomorphic-strings/
     @staticmethod
     def isomorphic_strings(s: str, t: str) -> bool:
