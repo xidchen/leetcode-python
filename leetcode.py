@@ -549,6 +549,21 @@ class Leetcode:
             return is_mirror(root.left, root.right)
         return True
 
+    # 121: /problems/best-time-to-buy-and-sell-stock/
+    @staticmethod
+    def max_profit(prices: [int]) -> int:
+        max_profit = 0
+        price_buy = price_sell = prices[0]
+        for price in prices:
+            if price < price_buy:
+                price_buy = price_sell = price
+            if price > price_sell:
+                price_sell = price
+                profit = price_sell - price_buy
+                if profit > max_profit:
+                    max_profit = profit
+        return max_profit
+
     # 142: /problems/linked-list-cycle-ii/
     @staticmethod
     def detect_cycle(head: ListNode) -> ListNode:
