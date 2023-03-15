@@ -56,7 +56,7 @@ class Leetcode:
 
     # 5: /problems/longest-palindromic-substring/
     @staticmethod
-    def longest_palindrome(s: str) -> str:
+    def longest_palindrome_substring(s: str) -> str:
         if len(s) < 2 or s == s[::-1]:
             return s
         start, ml = -1, 0
@@ -615,6 +615,28 @@ class Leetcode:
             except ValueError:
                 return False
         return True
+
+    # 409: /problems/longest-palindrome/
+    @staticmethod
+    def longest_palindrome(s: str) -> int:
+        d = {}
+        for c in s:
+            if c in d:
+                d[c] += 1
+            else:
+                d[c] = 1
+        length = 0
+        odd_flag = 0
+        for v in d.values():
+            if v % 2:
+                length += v - 1
+                if not odd_flag:
+                    odd_flag = 1
+            else:
+                length += v
+        if odd_flag:
+            length += 1
+        return length
 
     # 724: /problems/find-pivot-index/
     @staticmethod
