@@ -549,6 +549,24 @@ class Leetcode:
             return is_mirror(root.left, root.right)
         return True
 
+    # 102: /problems/binary-tree-level-order-traversal/
+    @staticmethod
+    def level_order(root: TreeNode) -> [[int]]:
+        queue = res = []
+        if root:
+            queue = [root]
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                node = queue.pop(0)
+                level.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+            res.append(level)
+        return res
+
     # 121: /problems/best-time-to-buy-and-sell-stock/
     @staticmethod
     def max_profit(prices: [int]) -> int:
