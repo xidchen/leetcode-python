@@ -9,3 +9,9 @@ class ListNode:
     def __init__(self, val=0, next_one=None):
         self.val = val
         self.next = next_one
+
+
+class Node:
+    def __iter__(self, val=None, children=None):
+        self.val = val
+        self.children = children

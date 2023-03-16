@@ -1,4 +1,4 @@
-from classes import TreeNode, ListNode
+from classes import TreeNode, ListNode, Node
 
 
 class Leetcode:
@@ -637,6 +637,19 @@ class Leetcode:
         if odd_flag:
             length += 1
         return length
+
+    # 589: /problems/n-ary-tree-preorder-traversal/
+    @staticmethod
+    def preorder(root: Node) -> [int]:
+        if not root:
+            return []
+        stack = [root]
+        res = []
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+            stack += node.children[::-1]
+        return res
 
     # 724: /problems/find-pivot-index/
     @staticmethod
