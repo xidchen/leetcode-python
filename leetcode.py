@@ -527,6 +527,24 @@ class Leetcode:
         nums1[m:] = nums2[:n]
         nums1.sort()
 
+    # 98: /problems/validate-binary-search-tree/
+    @staticmethod
+    def is_valid_bst(root: TreeNode) -> bool:
+        import math
+        if not root:
+            return True
+        stack = [(root, -math.inf, math.inf)]
+        while stack:
+            root, lower, upper = stack.pop()
+            if not root:
+                continue
+            val = root.val
+            if val <= lower or val >= upper:
+                return False
+            stack.append((root.right, val, upper))
+            stack.append((root.left, lower, val))
+        return True
+
     # 100: /problems/same-tree/
     def is_same_tree(self, p: TreeNode, q: TreeNode) -> bool:
         if p and q:
