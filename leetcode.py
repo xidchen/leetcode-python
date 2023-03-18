@@ -669,6 +669,26 @@ class Leetcode:
             stack += node.children[::-1]
         return res
 
+    # 704: /problems/binary-search/
+    @staticmethod
+    def binary_search(nums: [int], target: int) -> int:
+        i_l, i_r = 0, len(nums)
+        while True:
+            i_m = (i_l + i_r) // 2
+            if nums[i_m] == target:
+                return i_m
+            if nums[i_m] < target:
+                if i_l == i_m:
+                    break
+                else:
+                    i_l = i_m
+            if nums[i_m] > target:
+                if i_r == i_m:
+                    break
+                else:
+                    i_r = i_m
+        return -1
+
     # 724: /problems/find-pivot-index/
     @staticmethod
     def pivot_index(nums: [int]) -> int:
