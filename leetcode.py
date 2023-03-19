@@ -641,6 +641,22 @@ class Leetcode:
             curr = temp
         return prev
 
+    # 235: /problems/lowest-common-ancestor-of-a-binary-search-tree/
+    @staticmethod
+    def lowest_common_ancestor(root: TreeNode,
+                               p: TreeNode,
+                               q: TreeNode) -> None or TreeNode:
+        large = max(p.val, q.val)
+        small = min(p.val, q.val)
+        while root:
+            if root.val > large:
+                root = root.left
+            elif root.val < small:
+                root = root.right
+            else:
+                return root
+        return None
+
     # 392: /problems/is-subsequence/
     @staticmethod
     def is_subsequence(s: str, t: str) -> bool:
