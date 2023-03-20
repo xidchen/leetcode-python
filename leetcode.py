@@ -712,6 +712,14 @@ class Leetcode:
             length += 1
         return length
 
+    # 509: /problems/fibonacci-number/
+    @staticmethod
+    def fib(n: int) -> int:
+        a, b = 0, 1
+        for _ in range(n):
+            a, b = a, a + b
+        return a
+
     # 589: /problems/n-ary-tree-preorder-traversal/
     @staticmethod
     def preorder(root: Node) -> [int]:
