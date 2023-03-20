@@ -715,10 +715,15 @@ class Leetcode:
     # 509: /problems/fibonacci-number/
     @staticmethod
     def fib(n: int) -> int:
-        a, b = 0, 1
-        for _ in range(n):
-            a, b = a, a + b
-        return a
+        d = {0: 0, 1: 1}
+
+        def dp(m: int) -> int:
+            if m in d:
+                return d[m]
+            d[m] = dp(m - 1) + dp(m - 2)
+            return d[m]
+
+        return dp(n)
 
     # 589: /problems/n-ary-tree-preorder-traversal/
     @staticmethod
