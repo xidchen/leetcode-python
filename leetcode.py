@@ -504,13 +504,13 @@ class Leetcode:
     def climb_stairs(n: int) -> int:
         d = {1: 1, 2: 2}
 
-        def sub(m):
+        def dp(m: int) -> int:
             if m in d:
                 return d[m]
-            d[m] = sub(m - 1) + sub(m - 2)
+            d[m] = dp(m - 1) + dp(m - 2)
             return d[m]
 
-        return sub(n)
+        return dp(n)
 
     # 80: /problems/remove-duplicates-from-sorted-array-ii/
     @staticmethod
