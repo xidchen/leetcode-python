@@ -734,6 +734,28 @@ class Leetcode:
             sum_l += num
         return -1
 
+    # 733: /problems/flood-fill/
+    @staticmethod
+    def flood_fill(image: [[int]], sr: int, sc: int, color: int) -> [[int]]:
+        start_color = image[sr][sc]
+        filled = set()
+
+        def dfs(r: int, c: int):
+            if ((r, c) not in filled
+                    and 0 <= r < len(image)
+                    and 0 <= c < len(image[0])
+                    and image[r][c] == start_color):
+                filled.add((r, c))
+                image[r][c] = color
+                dfs(r - 1, c)
+                dfs(r + 1, c)
+                dfs(r, c - 1)
+                dfs(r, c + 1)
+            return
+
+        dfs(sr, sc)
+        return image
+
     # 876: /problems/middle-of-the-linked-list/
     @staticmethod
     def middle_node(head: ListNode) -> ListNode:
