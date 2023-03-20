@@ -614,6 +614,28 @@ class Leetcode:
                     slow = slow.next
                 return fast
 
+    # 200: /problems/number-of-islands/
+    @staticmethod
+    def num_islands(grid: [[str]]) -> int:
+
+        def dfs(r: int, c: int) -> None:
+            if (0 <= r < len(grid)
+                    and 0 <= c < len(grid[0])
+                    and grid[r][c] == '1'):
+                grid[r][c] = '#'
+                dfs(r - 1, c)
+                dfs(r + 1, c)
+                dfs(r, c - 1)
+                dfs(r, c + 1)
+
+        count = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    dfs(i, j)
+                    count += 1
+        return count
+
     # 205: /problems/isomorphic-strings/
     @staticmethod
     def isomorphic_strings(s: str, t: str) -> bool:
