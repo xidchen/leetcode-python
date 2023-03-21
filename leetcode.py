@@ -791,6 +791,14 @@ class Leetcode:
         dfs(sr, sc)
         return image
 
+    # 746: /problems/min-cost-climbing-stairs/
+    @staticmethod
+    def min_cost_climbing_stairs(cost: [int]) -> int:
+        a, b = cost[0], cost[1]
+        for i in range(2, len(cost)):
+            a, b = b, min(a, b) + cost[i]
+        return min(a, b)
+
     # 876: /problems/middle-of-the-linked-list/
     @staticmethod
     def middle_node(head: ListNode) -> ListNode:
