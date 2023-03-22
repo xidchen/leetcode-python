@@ -726,6 +726,39 @@ class Leetcode:
             length += 1
         return length
 
+    # 438: /problems/find-all-anagrams-in-a-string/
+    @staticmethod
+    def find_anagrams(s: str, p: str) -> [int]:
+        res = []
+        if len(s) < len(p):
+            return res
+        d_p = {}
+        for c in p:
+            if c in d_p:
+                d_p[c] += 1
+            else:
+                d_p[c] = 1
+        d_w = {}
+        for c in s[:len(p)]:
+            if c in d_w:
+                d_w[c] += 1
+            else:
+                d_w[c] = 1
+        for i in range(len(s) - len(p) + 1):
+            w = s[i:i + len(p)]
+            if i:
+                if d_w[s[i - 1]] > 1:
+                    d_w[s[i - 1]] -= 1
+                else:
+                    del d_w[s[i - 1]]
+                if w[-1] in d_w:
+                    d_w[w[-1]] += 1
+                else:
+                    d_w[w[-1]] = 1
+            if d_p == d_w:
+                res.append(i)
+        return res
+
     # 509: /problems/fibonacci-number/
     @staticmethod
     def fib(n: int) -> int:
