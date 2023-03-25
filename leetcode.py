@@ -846,6 +846,21 @@ class Leetcode:
             a, b = b, min(a, b) + cost[i]
         return min(a, b)
 
+    # 844: /problems/backspace-string-compare/
+    @staticmethod
+    def backspace_compare(s: str, t: str) -> bool:
+
+        def backspace(s0: str) -> str:
+            s1 = ''
+            for c in s0:
+                if c == '#' and s1:
+                    s1 = s1[:-1]
+                if c != '#':
+                    s1 += c
+            return s1
+
+        return backspace(s) == backspace(t)
+
     # 876: /problems/middle-of-the-linked-list/
     @staticmethod
     def middle_node(head: ListNode) -> ListNode:
