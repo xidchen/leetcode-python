@@ -873,6 +873,21 @@ class Leetcode:
             dummy = dummy.next
         return dummy
 
+    # 1046: /problems/last-stone-weight/
+    @staticmethod
+    def last_stone_weight(stones: [int]) -> int:
+        while stones:
+            if len(stones) == 1:
+                return stones[0]
+            stones = sorted(stones)
+            stones[-2] = stones[-1] - stones[-2]
+            stones.pop()
+            if not stones[-1]:
+                stones.pop()
+            if not stones:
+                return 0
+        return stones[0]
+
     # 1480: /problems/running-sum-of-1d-array/
     @staticmethod
     def running_sum(nums: [int]) -> [int]:
