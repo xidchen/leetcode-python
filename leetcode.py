@@ -677,6 +677,17 @@ class Leetcode:
             curr = temp
         return prev
 
+    # 217: /problems/contains-duplicate/
+    @staticmethod
+    def contains_duplicate(nums: [int]) -> bool:
+        s = set()
+        for n in nums:
+            if n in s:
+                return True
+            else:
+                s.add(n)
+        return False
+
     # 235: /problems/lowest-common-ancestor-of-a-binary-search-tree/
     @staticmethod
     def lowest_common_ancestor(root: TreeNode,
