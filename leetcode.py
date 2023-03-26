@@ -926,3 +926,18 @@ class Leetcode:
         for i in range(1, len(nums)):
             nums[i] += nums[i - 1]
         return nums
+
+    # 1706: /problems/where-will-the-ball-fall/
+    @staticmethod
+    def find_ball(grid: [[int]]) -> [int]:
+        res = [0] * len(grid[0])
+        for c in range(len(grid[0])):
+            current_c = c
+            for r in range(len(grid)):
+                next_c = current_c + grid[r][current_c]
+                if (next_c < 0 or next_c > len(grid[0]) - 1
+                        or grid[r][current_c] != grid[r][next_c]):
+                    res[c] = -1
+                    break
+                res[c] = current_c = next_c
+        return res
