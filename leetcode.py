@@ -477,6 +477,15 @@ class Leetcode:
                 max_global = max_current
         return max_global
 
+    # 54: /problems/spiral-matrix/
+    @staticmethod
+    def spiral_order(matrix: [[int]]) -> [int]:
+        res = []
+        while matrix:
+            res += matrix.pop(0)
+            matrix = list(zip(*matrix))[::-1]
+        return res
+
     # 58: /problems/length-of-last-word/
     @staticmethod
     def length_of_last_word(s: str) -> int:
