@@ -650,6 +650,18 @@ class Leetcode:
                     count += 1
         return count
 
+    # 202: /problems/happy-number/
+    @staticmethod
+    def is_happy(n: int) -> bool:
+        s = set()
+        while n != 1:
+            if n in s:
+                return False
+            else:
+                s.add(n)
+                n = sum([int(c) ** 2 for c in str(n)])
+        return True
+
     # 205: /problems/isomorphic-strings/
     @staticmethod
     def isomorphic_strings(s: str, t: str) -> bool:
