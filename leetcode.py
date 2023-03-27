@@ -467,6 +467,16 @@ class Leetcode:
             s = new
         return s
 
+    # 43: /problems/multiply-strings/
+    @staticmethod
+    def multiply(num1: str, num2: str) -> str:
+        res = 0
+        n1, n2 = num1[::-1], num2[::-1]
+        for i, c1 in enumerate(n1):
+            for j, c2 in enumerate(n2):
+                res += int(c1) * int(c2) * 10 ** (i + j)
+        return str(res)
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: [int]) -> int:
