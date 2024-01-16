@@ -47,12 +47,31 @@ class Leetcode:
 
     # 4: /problems/median-of-two-sorted-arrays/
     @staticmethod
-    def find_median_sorted_arrays(nums1: [int], nums2: [int]) -> float:
-        nums = sorted(nums1 + nums2)
-        if len(nums) % 2:
-            return nums[len(nums) // 2]
-        else:
-            return (nums[len(nums) // 2 - 1] + nums[len(nums) // 2]) / 2
+    def find_median_sorted_arrays(a: [int], b: [int]) -> float:
+
+        def get_kth_smallest(a_start: int, b_start: int, k: int):
+            if k <= 0 or k > len(a) - a_start + len(b) - b_start:
+                raise ValueError('k is out of the bounds of the input lists')
+            if a_start >= len(a):
+                return b[b_start + k - 1]
+            if b_start >= len(b):
+                return a[a_start + k - 1]
+            if k == 1:
+                return min(a[a_start], b[b_start])
+            mid_a, mid_b = float('inf'), float('inf')
+            if k // 2 - 1 < len(a) - a_start:
+                mid_a = a[a_start + k // 2 - 1]
+            if k // 2 - 1 < len(b) - b_start:
+                mid_b = b[b_start + k // 2 - 1]
+            if mid_a < mid_b:
+                return get_kth_smallest(a_start + k // 2, b_start, k - k // 2)
+            return get_kth_smallest(a_start, b_start + k // 2, k - k // 2)
+
+        right = get_kth_smallest(0, 0, 1 + (len(a) + len(b)) // 2)
+        if (len(a) + len(b)) % 2:
+            return right
+        left = get_kth_smallest(0, 0, (len(a) + len(b)) // 2)
+        return (left + right) / 2
 
     # 5: /problems/longest-palindromic-substring/
     @staticmethod
