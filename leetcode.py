@@ -33,17 +33,15 @@ class Leetcode:
 
     # 3: /problems/longest-substring-without-repeating-characters/
     @staticmethod
-    def length_of_longest_substring(s: str) -> int:
-        ss, ll, cl = '', 0, 0
-        for x in s:
-            if x in ss:
-                ss = ss[ss.index(x) + 1:] + x
-                cl = len(ss)
+    def length_of_longest_substring(s):
+        last_seen, start, longest = {}, 0, 0
+        for i, c in enumerate(s):
+            if c in last_seen and last_seen[c] >= start:
+                start = last_seen[c] + 1
             else:
-                ss += x
-                cl += 1
-                ll = cl if cl > ll else ll
-        return ll
+                longest = max(longest, i - start + 1)
+            last_seen[c] = i
+        return longest
 
     # 4: /problems/median-of-two-sorted-arrays/
     @staticmethod
