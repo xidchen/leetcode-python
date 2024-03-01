@@ -108,10 +108,15 @@ class Leetcode:
     # 7: /problems/reverse-integer/
     @staticmethod
     def reverse(x: int) -> int:
-        y = -1 * x if x < 0 else x
-        y = int(str(y)[::-1])
-        y = -1 * y if x < 0 else y
-        return y if y in range(-2 ** 31, 2 ** 31) else 0
+        negative = x < 0
+        x = abs(x)
+        y = 0
+        while x != 0:
+            y = y * 10 + x % 10
+            x //= 10
+        if y > 2 ** 31 - 1:
+            return 0
+        return y if not negative else -y
 
     # 8: /problems/string-to-integer-atoi/
     @staticmethod
