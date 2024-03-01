@@ -8,3 +8,4 @@ if __name__ == '__main__':
     print(f"Median of sorted arrays: {lc.find_median_sorted_arrays(a=[1, 2], b=[3, 4])}")
     print(f"Longest palindrome: {lc.longest_palindrome(s='babad')}")
     print(f"Zigzag conversion: {lc.convert(s='PAYPALISHIRING', num_rows=3)}")
+    print(f"Reverse integer: {lc.reverse(x=-120)}")
