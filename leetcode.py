@@ -122,28 +122,23 @@ class Leetcode:
     @staticmethod
     def my_atoi(s: str) -> int:
         s = s.strip()
+        negative = False
+        if s and s[0] == '-':
+            negative = True
+        if s and s[0] in {'+', '-'}:
+            s = s[1:]
         if not s:
             return 0
-        neg_flag = 0
-        if s[0] in ['+', '-']:
-            if len(s) == 1:
-                return 0
-            if not (48 <= ord(s[1]) <= 57):
-                return 0
-            if s[0] == '-':
-                neg_flag = 1
-            s = s[1:]
-        if not (48 <= ord(s[0]) <= 57):
-            return 0
-        for i in range(len(s)):
-            if not (48 <= ord(s[i]) <= 57):
-                s = s[:i]
+        digits = {i for i in '0123456789'}
+        n = 0
+        for c in s:
+            if c not in digits:
                 break
-        if neg_flag:
-            n = int('-' + s)
-            return n if -2 ** 31 < n else -2 ** 31
-        n = int(s)
-        return n if n < 2 ** 31 - 1 else 2 ** 31 - 1
+            n = n * 10 + int(c)
+        if negative:
+            n = -n
+        n = max(min(n, 2 ** 31 - 1), -2 ** 31)
+        return n
 
     # 9: /problems/palindrome-number/
     @staticmethod
