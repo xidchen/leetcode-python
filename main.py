@@ -10,3 +10,4 @@ if __name__ == '__main__':
     print(f"Zigzag conversion: {lc.convert(s='PAYPALISHIRING', num_rows=3)}")
     print(f"Reverse integer: {lc.reverse(x=-120)}")
     print(f"String to integer (atoi): {lc.my_atoi(s='-273 degree')}")
+    print(f"Is palindrome: {lc.is_palindrome(x=121)}")
