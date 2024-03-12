@@ -11,3 +11,4 @@ if __name__ == '__main__':
     print(f"Reverse integer: {lc.reverse(x=-120)}")
     print(f"String to integer (atoi): {lc.my_atoi(s='-273 degree')}")
     print(f"Is palindrome: {lc.is_palindrome(x=121)}")
+    print(f"Regular expression matching: {lc.is_match(s='aa', p='a*')}")
