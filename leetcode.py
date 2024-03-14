@@ -148,7 +148,7 @@ class Leetcode:
     # 10: /problems/regular-expression-matching/
     @staticmethod
     def is_match(s: str, p: str) -> bool:
-        dp = [[False] * (len(p) + 1) for _ in range(len(s) + 1)]
+        dp = [[False] * (len(p) + 1)] * (len(s) + 1)
         dp[-1][-1] = True
         for i in range(len(s), -1, -1):
             for j in range(len(p) - 1, -1, -1):
