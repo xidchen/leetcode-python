@@ -12,3 +12,4 @@ if __name__ == '__main__':
     print(f"String to integer (atoi): {lc.my_atoi(s='-273 degree')}")
     print(f"Is palindrome: {lc.is_palindrome(x=121)}")
     print(f"Regular expression matching: {lc.is_match(s='aa', p='a*')}")
+    print(f"Container with most water: {lc.max_area([1, 8, 6, 2, 5, 4, 8, 3, 7])}")
