@@ -191,14 +191,14 @@ class Leetcode:
     @staticmethod
     def roman_to_int(s: str) -> int:
         d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        output, prev = 0, 0
-        for p in s[::-1]:
-            if d[p] >= prev:
-                prev = d[p]
-                output += d[p]
+        integer, prev_int = 0, 0
+        for roman in s[::-1]:
+            if d[roman] >= prev_int:
+                prev_int = d[roman]
+                integer += d[roman]
             else:
-                output -= d[p]
-        return output
+                integer -= d[roman]
+        return integer
 
     # 14: /problems/longest-common-prefix/
     @staticmethod
