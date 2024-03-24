@@ -208,13 +208,13 @@ class Leetcode:
         if len(strs) == 1:
             return strs[0]
         strs.sort()
-        result = ''
+        res = ''
         for a, b in zip(strs[0], strs[-1]):
             if a == b:
-                result += a
+                res += a
             else:
                 break
-        return result
+        return res
 
     # 15: /problems/3sum
     @staticmethod
