@@ -96,6 +96,13 @@ def longest_common_prefix():
     print(f"Longest common prefix: {res}")
 
 
+# 15: /problems/3sum
+def three_sum():
+    nums = [-1, 0, 1, 2, -1, -4]
+    res = lc.three_sum(nums)
+    print(f"Three sum: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -111,3 +118,4 @@ if __name__ == "__main__":
     int_to_roman()
     roman_to_int()
     longest_common_prefix()
+    three_sum()
