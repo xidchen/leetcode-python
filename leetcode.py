@@ -265,21 +265,27 @@ class Leetcode:
 
     # 17: /problems/letter-combinations-of-a-phone-number/
     @staticmethod
-    def letter_combination(digits: str) -> [str]:
-        phone = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',
-                 '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
-        res = []
-
-        def backtrack(combination, d):
-            if d:
-                for letter in phone[d[0]]:
-                    backtrack(combination + letter, d[1:])
-            else:
-                res.append(combination)
-
-        if digits:
-            backtrack('', digits)
-        return res
+    def letter_combinations(digits: str) -> [str]:
+        if not digits or '0' in digits or '1' in digits:
+            return []
+        results = [[]]
+        mapping = {
+            '2': ['a', 'b', 'c'],
+            '3': ['d', 'e', 'f'],
+            '4': ['g', 'h', 'i'],
+            '5': ['j', 'k', 'l'],
+            '6': ['m', 'n', 'o'],
+            '7': ['p', 'q', 'r', 's'],
+            '8': ['t', 'u', 'v'],
+            '9': ['w', 'x', 'y', 'z']
+        }
+        for digit in digits:
+            temp = []
+            for result in results:
+                for letter in mapping[digit]:
+                    temp.append(result + [letter])
+            results = temp
+        return [''.join(result) for result in results]
 
     # 18: /problems/4sum/
     @staticmethod

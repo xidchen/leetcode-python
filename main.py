@@ -111,6 +111,13 @@ def three_sum_closest():
     print(f"Three sum closest: {res}")
 
 
+# 17: /problems/letter-combinations-of-a-phone-number/
+def letter_combinations():
+    digits = "38"
+    res = lc.letter_combinations(digits)
+    print(f"Letter combinations: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -128,3 +135,4 @@ if __name__ == "__main__":
     longest_common_prefix()
     three_sum()
     three_sum_closest()
+    letter_combinations()
