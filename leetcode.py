@@ -259,7 +259,7 @@ class Leetcode:
                     return res
                 if s < target:
                     j += 1
-                else:
+                if s > target:
                     k -= 1
         return res
 

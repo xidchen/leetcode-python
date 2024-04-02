@@ -103,6 +103,14 @@ def three_sum():
     print(f"Three sum: {res}")
 
 
+# 16: /problems/3sum-closest/
+def three_sum_closest():
+    nums = [4, 0, 5, -5, 3, 3, 0, -4, -5]
+    target = -2
+    res = lc.three_sum_closest(nums, target)
+    print(f"Three sum closest: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -119,3 +127,4 @@ if __name__ == "__main__":
     roman_to_int()
     longest_common_prefix()
     three_sum()
+    three_sum_closest()
