@@ -118,6 +118,14 @@ def letter_combinations():
     print(f"Letter combinations: {res}")
 
 
+# 18: /problems/4sum/
+def four_sum():
+    nums = [0, 0, 0, 1000000000, 1000000000, 1000000000, 1000000000]
+    target = 1000000000
+    res = lc.four_sum(nums, target)
+    print(f"Four sum: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -136,3 +144,4 @@ if __name__ == "__main__":
     three_sum()
     three_sum_closest()
     letter_combinations()
+    four_sum()
