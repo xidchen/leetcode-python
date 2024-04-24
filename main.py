@@ -13,25 +13,10 @@ def two_sum():
 
 # 2: /problems/add-two-numbers/
 def add_two_numbers():
-
-    def list_to_linked_list(nums: list[int]) -> ListNode:
-        current = dummy = ListNode(0)
-        for num in nums:
-            current.next = ListNode(num)
-            current = current.next
-        return dummy.next
-
-    def linked_list_to_list(node: ListNode) -> list[int]:
-        nums = []
-        while node:
-            nums.append(node.val)
-            node = node.next
-        return nums
-
-    l1 = list_to_linked_list([9, 9, 9, 9, 9, 9, 9])
-    l2 = list_to_linked_list([9, 9, 9, 9])
+    l1 = lc.list_to_linked_list([9, 9, 9, 9, 9, 9, 9])
+    l2 = lc.list_to_linked_list([9, 9, 9, 9])
     res_link_list = lc.add_two_numbers(l1, l2)
-    res = linked_list_to_list(res_link_list)
+    res = lc.linked_list_to_list(res_link_list)
     print(f"Adding two linked list numbers: {res}")
 
 

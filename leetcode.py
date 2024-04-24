@@ -32,6 +32,22 @@ class Leetcode:
             carry //= 10
         return dummy.next
 
+    @staticmethod
+    def list_to_linked_list(nums: list[int]) -> ListNode:
+        current = dummy = ListNode(0)
+        for num in nums:
+            current.next = ListNode(num)
+            current = current.next
+        return dummy.next
+
+    @staticmethod
+    def linked_list_to_list(node: ListNode) -> list[int]:
+        nums = []
+        while node:
+            nums.append(node.val)
+            node = node.next
+        return nums
+
     # 3: /problems/longest-substring-without-repeating-characters/
     @staticmethod
     def length_of_longest_substring(s: str) -> int:
