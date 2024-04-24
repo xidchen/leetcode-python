@@ -1,4 +1,4 @@
-from classes import TreeNode, ListNode, Node
+from classes import ListNode, Node, TreeNode
 
 
 class Leetcode:
@@ -18,22 +18,23 @@ class Leetcode:
     # 2: /problems/add-two-numbers/
     @staticmethod
     def add_two_numbers(l1: ListNode, l2: ListNode) -> ListNode:
+        current = dummy = ListNode(None)
         carry = 0
-        root = n = ListNode(0)
         while l1 or l2 or carry:
-            v1 = v2 = 0
             if l1:
-                v1, l1 = l1.val, l1.next
+                carry += l1.val
+                l1 = l1.next
             if l2:
-                v2, l2 = l2.val, l2.next
-            carry, val = divmod(v1 + v2 + carry, 10)
-            n.next = ListNode(val)
-            n = n.next
-        return root.next
+                carry += l2.val
+                l2 = l2.next
+            current.next = ListNode(carry % 10)
+            current = current.next
+            carry //= 10
+        return dummy.next
 
     # 3: /problems/longest-substring-without-repeating-characters/
     @staticmethod
-    def length_of_longest_substring(s):
+    def length_of_longest_substring(s: str) -> int:
         last_seen, start, longest = {}, 0, 0
         for i, c in enumerate(s):
             if c in last_seen and last_seen[c] >= start:
