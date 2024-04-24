@@ -1,7 +1,5 @@
 import leetcode
 
-from classes import ListNode
-
 
 # 1: /problems/two-sum/
 def two_sum():
