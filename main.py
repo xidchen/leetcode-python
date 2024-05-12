@@ -135,6 +135,15 @@ def four_sum():
     print(f"Four sum: {res}")
 
 
+# 19: /problems/remove-nth-node-from-end-of-list/
+def remove_nth_from_end():
+    head = lc.list_to_linked_list([1, 2, 3, 4, 5])
+    n = 2
+    res_linked_list = lc.remove_nth_from_end(head, n)
+    res = lc.linked_list_to_list(res_linked_list)
+    print(f"Remove nth node from end of list: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -155,3 +164,4 @@ if __name__ == "__main__":
     three_sum_closest()
     letter_combinations()
     four_sum()
+    remove_nth_from_end()

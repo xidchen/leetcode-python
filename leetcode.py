@@ -338,6 +338,20 @@ class Leetcode:
         nums.sort()
         return k_sum(nums, target, 4)
 
+    # 19: /problems/remove-nth-node-from-end-of-list/
+    @staticmethod
+    def remove_nth_from_end(head: ListNode, n: int) -> ListNode:
+        first, second = head, head
+        for _ in range(n):
+            first = first.next
+        if not first:
+            return head.next
+        while first.next:
+            first = first.next
+            second = second.next
+        second.next = second.next.next
+        return head
+
     # 20: /problems/valid-parentheses/
     @staticmethod
     def is_valid(s: str) -> bool:
