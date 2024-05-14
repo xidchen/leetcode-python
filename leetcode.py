@@ -6,6 +6,22 @@ class Leetcode:
     def __init__(self):
         pass
 
+    @staticmethod
+    def list_to_linked_list(nums: list[int]) -> ListNode:
+        current = dummy = ListNode(0)
+        for num in nums:
+            current.next = ListNode(num)
+            current = current.next
+        return dummy.next
+
+    @staticmethod
+    def linked_list_to_list(node: ListNode) -> list[int]:
+        nums = []
+        while node:
+            nums.append(node.val)
+            node = node.next
+        return nums
+
     # 1: /problems/two-sum/
     @staticmethod
     def two_sum(nums: [int], target: int) -> [int]:
@@ -31,22 +47,6 @@ class Leetcode:
             current = current.next
             carry //= 10
         return dummy.next
-
-    @staticmethod
-    def list_to_linked_list(nums: list[int]) -> ListNode:
-        current = dummy = ListNode(0)
-        for num in nums:
-            current.next = ListNode(num)
-            current = current.next
-        return dummy.next
-
-    @staticmethod
-    def linked_list_to_list(node: ListNode) -> list[int]:
-        nums = []
-        while node:
-            nums.append(node.val)
-            node = node.next
-        return nums
 
     # 3: /problems/longest-substring-without-repeating-characters/
     @staticmethod
