@@ -146,7 +146,7 @@ def remove_nth_from_end():
 
 # 20: /problems/valid-parentheses/
 def is_valid():
-    s = "()"
+    s = "()[]{}"
     res = lc.is_valid(s)
     print(f"Valid parentheses: {res}")
 
