@@ -144,6 +144,13 @@ def remove_nth_from_end():
     print(f"Remove nth node from end of list: {res}")
 
 
+# 20: /problems/valid-parentheses/
+def is_valid():
+    s = "()"
+    res = lc.is_valid(s)
+    print(f"Valid parentheses: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -165,3 +172,4 @@ if __name__ == "__main__":
     letter_combinations()
     four_sum()
     remove_nth_from_end()
+    is_valid()
