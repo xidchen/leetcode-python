@@ -151,6 +151,15 @@ def is_valid():
     print(f"Valid parentheses: {res}")
 
 
+# 21: /problems/merge-two-sorted-lists/
+def merge_two_lists():
+    list1 = lc.list_to_linked_list([1, 2, 4])
+    list2 = lc.list_to_linked_list([1, 3, 4])
+    res_linked_list = lc.merge_two_lists(list1, list2)
+    res = lc.linked_list_to_list(res_linked_list)
+    print(f"Merge two linked lists: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -173,3 +182,4 @@ if __name__ == "__main__":
     four_sum()
     remove_nth_from_end()
     is_valid()
+    merge_two_lists()
