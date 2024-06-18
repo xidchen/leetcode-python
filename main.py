@@ -157,7 +157,7 @@ def merge_two_lists():
     list2 = lc.list_to_linked_list([1, 3, 4])
     res_linked_list = lc.merge_two_lists(list1, list2)
     res = lc.linked_list_to_list(res_linked_list)
-    print(f"Merge two linked lists: {res}")
+    print(f"Merge two sorted lists: {res}")
 
 
 if __name__ == "__main__":
