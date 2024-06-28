@@ -160,6 +160,13 @@ def merge_two_lists():
     print(f"Merge two sorted lists: {res}")
 
 
+# 22: /problems/generate-parentheses/
+def generate_parenthesis():
+    n = 3
+    res = lc.generate_parenthesis(n)
+    print(f"Generated parenthesis: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -183,3 +190,4 @@ if __name__ == "__main__":
     remove_nth_from_end()
     is_valid()
     merge_two_lists()
+    generate_parenthesis()

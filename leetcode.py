@@ -384,19 +384,19 @@ class Leetcode:
     # 22: /problems/generate-parentheses/
     @staticmethod
     def generate_parenthesis(n: int) -> [str]:
-        ans = []
 
         def backtrack(s='', left=0, right=0):
             if len(s) == 2 * n:
-                ans.append(s)
+                res.append(s)
                 return
             if left < n:
                 backtrack(s + '(', left + 1, right)
             if right < left:
                 backtrack(s + ')', left, right + 1)
 
+        res = []
         backtrack()
-        return ans
+        return res
 
     # 26: /problems/remove-duplicates-from-sorted-array/
     @staticmethod
