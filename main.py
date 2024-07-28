@@ -167,6 +167,15 @@ def generate_parenthesis():
     print(f"Generated parenthesis: {res}")
 
 
+# 23: /problems/merge-k-sorted-lists/
+def merge_k_lists():
+    lists = [[1, 4, 5], [1, 3, 4], [2, 6]]
+    linked_lists = [lc.list_to_linked_list(_) for _ in lists]
+    res_linked_list = lc.merge_k_lists(linked_lists)
+    res = lc.linked_list_to_list(res_linked_list)
+    print(f"Merge k sorted lists: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -191,3 +200,4 @@ if __name__ == "__main__":
     is_valid()
     merge_two_lists()
     generate_parenthesis()
+    merge_k_lists()
