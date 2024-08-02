@@ -419,6 +419,19 @@ class Leetcode:
                 heapq.heappush(heap, (node.next.val, i))
         return dummy.next
 
+    # 24: /problems/swap-nodes-in-pairs/
+    @staticmethod
+    def swap_pairs(head: ListNode) -> ListNode:
+        prev = dummy = ListNode(None)
+        while head and head.next:
+            next_head = head.next.next
+            prev.next = head.next
+            head.next.next = head
+            prev = head
+            head = next_head
+        prev.next = head
+        return dummy.next
+
     # 26: /problems/remove-duplicates-from-sorted-array/
     @staticmethod
     def remove_duplicates(nums: [int]) -> int:

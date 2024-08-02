@@ -176,6 +176,14 @@ def merge_k_lists():
     print(f"Merge k sorted lists: {res}")
 
 
+# 24: /problems/swap-nodes-in-pairs/
+def swap_pairs():
+    head = lc.list_to_linked_list([1, 2, 3, 4])
+    res_linked_list = lc.swap_pairs(head)
+    res = lc.linked_list_to_list(res_linked_list)
+    print(f"Swap nodes in pairs: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -201,3 +209,4 @@ if __name__ == "__main__":
     merge_two_lists()
     generate_parenthesis()
     merge_k_lists()
+    swap_pairs()
