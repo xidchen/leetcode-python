@@ -184,6 +184,13 @@ def swap_pairs():
     print(f"Swap nodes in pairs: {res}")
 
 
+# 26: /problems/remove-duplicates-from-sorted-array/
+def remove_duplicates():
+    nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+    res = lc.remove_duplicates(nums)
+    print(f"Remove duplicates from sorted array: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -210,3 +217,4 @@ if __name__ == "__main__":
     generate_parenthesis()
     merge_k_lists()
     swap_pairs()
+    remove_duplicates()

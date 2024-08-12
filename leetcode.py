@@ -435,11 +435,12 @@ class Leetcode:
     # 26: /problems/remove-duplicates-from-sorted-array/
     @staticmethod
     def remove_duplicates(nums: [int]) -> int:
-        temp = set(nums)
-        nums.clear()
-        nums.extend(temp)
-        nums.sort()
-        return len(nums)
+        next_new = 0
+        for i in range(len(nums)):
+            if i == 0 or nums[i] != nums[i - 1]:
+                nums[next_new] = nums[i]
+                next_new += 1
+        return next_new
 
     # 27: /problems/remove-element/
     @staticmethod
