@@ -445,9 +445,12 @@ class Leetcode:
     # 27: /problems/remove-element/
     @staticmethod
     def remove_elements(nums: [int], val: int) -> int:
-        while nums.count(val):
-            nums.remove(val)
-        return len(nums)
+        k = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]
+                k += 1
+        return k
 
     # 28: /problems/implement-strstr/
     @staticmethod

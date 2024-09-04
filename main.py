@@ -191,6 +191,14 @@ def remove_duplicates():
     print(f"Remove duplicates from sorted array: {res}")
 
 
+# 27: /problems/remove-element/
+def remove_element():
+    nums = [0, 1, 2, 2, 3, 0, 4, 2]
+    val = 2
+    res = lc.remove_elements(nums, val)
+    print(f"Remove element: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -218,3 +226,4 @@ if __name__ == "__main__":
     merge_k_lists()
     swap_pairs()
     remove_duplicates()
+    remove_element()
