@@ -199,6 +199,14 @@ def remove_element():
     print(f"Remove element: {res}")
 
 
+# 28: /problems/find-the-index-of-the-first-occurrence-in-a-string/
+def str_str():
+    haystack = "sadness"
+    needle = "sad"
+    res = lc.str_str(haystack, needle)
+    print(f"Find the index of the first occurrence in a string: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -227,3 +235,4 @@ if __name__ == "__main__":
     swap_pairs()
     remove_duplicates()
     remove_element()
+    str_str()
