@@ -237,7 +237,8 @@ class Leetcode:
     @staticmethod
     def three_sum(nums: [int]) -> [[int]]:
         import bisect
-        ref, res = {}, []
+        ref: dict[int, int] = {}
+        res: [[int]] = []
         for n in nums:
             ref[n] = ref[n] + 1 if n in ref else 1
         nums = sorted(ref)
