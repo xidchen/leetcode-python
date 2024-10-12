@@ -206,6 +206,13 @@ def str_str():
     res = lc.str_str(haystack, needle)
     print(f"Find the index of the first occurrence in a string: {res}")
 
+# 29: /problems/divide-two-integers/
+def divide():
+    dividend = 7
+    divisor = -3
+    res = lc.divide(dividend, divisor)
+    print(f"Divide two integers: {res}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
@@ -236,3 +243,4 @@ if __name__ == "__main__":
     remove_duplicates()
     remove_element()
     str_str()
+    divide()
