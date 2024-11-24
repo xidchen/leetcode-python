@@ -213,6 +213,13 @@ def divide():
     res = lc.divide(dividend, divisor)
     print(f"Divide two integers: {res}")
 
+# 30: /problems/substring-with-concatenation-of-all-words/
+def find_substring():
+    s = "barfoothefoobarman"
+    words = ["foo", "bar"]
+    res = lc.find_substring(s, words)
+    print(f"Substring with concatenation of all words: {res}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
@@ -244,3 +251,4 @@ if __name__ == "__main__":
     remove_element()
     str_str()
     divide()
+    find_substring()
