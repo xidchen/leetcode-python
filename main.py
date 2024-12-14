@@ -222,7 +222,7 @@ def find_substring():
 
 # 31: /problems/next-permutation/
 def next_permutation():
-    nums = [3, 2, 1]
+    nums = [4, 5, 3, 2, 1]
     lc.next_permutation(nums)
     print(f"Next permutation: {nums}")
 
