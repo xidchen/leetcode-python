@@ -220,6 +220,12 @@ def find_substring():
     res = lc.find_substring(s, words)
     print(f"Substring with concatenation of all words: {res}")
 
+# 31: /problems/next-permutation/
+def next_permutation():
+    nums = [3, 2, 1]
+    lc.next_permutation(nums)
+    print(f"Next permutation: {nums}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
@@ -252,3 +258,4 @@ if __name__ == "__main__":
     str_str()
     divide()
     find_substring()
+    next_permutation()

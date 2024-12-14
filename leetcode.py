@@ -513,9 +513,8 @@ class Leetcode:
             j = len(nums) - 1
             while nums[j] <= nums[i]:
                 j -= 1
-            (nums[i], nums[j]) = (nums[j], nums[i])
+            nums[i], nums[j] = nums[j], nums[i]
         nums[::] = nums[:i + 1] + nums[i + 1:][::-1]
-        return None
 
     # 32: /problems/longest-valid-parentheses/
     @staticmethod
