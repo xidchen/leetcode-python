@@ -226,6 +226,12 @@ def next_permutation():
     lc.next_permutation(nums)
     print(f"Next permutation: {nums}")
 
+# 32: /problems/longest-valid-parentheses/
+def longest_valid_parentheses():
+    s = ")()())"
+    res = lc.longest_valid_parentheses(s)
+    print(f"Longest valid parentheses: {res}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
@@ -259,3 +265,4 @@ if __name__ == "__main__":
     divide()
     find_substring()
     next_permutation()
+    longest_valid_parentheses()
