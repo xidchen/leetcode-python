@@ -239,6 +239,13 @@ def search():
     res = lc.search(nums, target)
     print(f"Search in rotated sorted array: {res}")
 
+# 34: /problems/find-first-and-last-position-of-element-in-sorted-array/
+def search_range():
+    nums = [5, 7, 7, 8, 8, 10]
+    target = 8
+    res = lc.search_range(nums, target)
+    print(f"Find first and last position of element in sorted array: {res}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
@@ -274,3 +281,4 @@ if __name__ == "__main__":
     next_permutation()
     longest_valid_parentheses()
     search()
+    search_range()

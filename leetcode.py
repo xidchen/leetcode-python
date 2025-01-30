@@ -552,6 +552,24 @@ class Leetcode:
                     right = mid - 1
         return -1
 
+    # 34: /problems/find-first-and-last-position-of-element-in-sorted-array/
+    @staticmethod
+    def search_range(nums: [int], target: int) -> [int]:
+
+        def binary(tgt, left, right):
+            if left > right:
+                return left
+            mid = (left + right) // 2
+            if tgt > nums[mid]:
+                left = mid + 1
+            else:
+                right = mid - 1
+            return binary(tgt, left, right)
+
+        lower = binary(target - 0.5, 0, len(nums) - 1)
+        upper = binary(target + 0.5, 0, len(nums) - 1)
+        return [-1, -1] if lower == upper else [lower, upper - 1]
+
     # 35: /problems/search-insert-position/
     @staticmethod
     def search_insert(nums: [str], target: int) -> int:
