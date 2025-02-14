@@ -249,7 +249,7 @@ def search_range():
 # 35: /problems/search-insert-position/
 def search_insert():
     nums = [1, 3, 5, 6]
-    target = 2
+    target = 0
     res = lc.search_insert(nums, target)
     print(f"Search insert position: {res}")
 

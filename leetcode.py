@@ -575,7 +575,7 @@ class Leetcode:
     def search_insert(nums: [str], target: int) -> int:
         left = 0
         right = len(nums) - 1
-        while 0 <= left <= right < len(nums):
+        while left <= right:
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
@@ -772,7 +772,7 @@ class Leetcode:
 
     # 142: /problems/linked-list-cycle-ii/
     @staticmethod
-    def detect_cycle(head: ListNode) -> ListNode:
+    def detect_cycle(head: ListNode):
         fast = slow = head
         while fast and fast.next:
             fast = fast.next.next
