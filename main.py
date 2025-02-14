@@ -246,6 +246,13 @@ def search_range():
     res = lc.search_range(nums, target)
     print(f"Find first and last position of element in sorted array: {res}")
 
+# 35: /problems/search-insert-position/
+def search_insert():
+    nums = [1, 3, 5, 6]
+    target = 2
+    res = lc.search_insert(nums, target)
+    print(f"Search insert position: {res}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
@@ -282,3 +289,4 @@ if __name__ == "__main__":
     longest_valid_parentheses()
     search()
     search_range()
+    search_insert()

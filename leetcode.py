@@ -573,10 +573,17 @@ class Leetcode:
     # 35: /problems/search-insert-position/
     @staticmethod
     def search_insert(nums: [str], target: int) -> int:
-        for i in range(len(nums)):
-            if target <= nums[i]:
-                return i
-        return len(nums)
+        left = 0
+        right = len(nums) - 1
+        while 0 <= left <= right < len(nums):
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return left
 
     # 38: /problems/count-and-say/
     @staticmethod
