@@ -575,7 +575,7 @@ class Leetcode:
     def search_insert(nums: [str], target: int) -> int:
         left = 0
         right = len(nums) - 1
-        while left <= right:
+        while 0 <= left <= right < len(nums):
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
