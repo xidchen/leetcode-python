@@ -585,6 +585,25 @@ class Leetcode:
                 right = mid - 1
         return left
 
+    # 36: /problems/valid-sudoku/
+    @staticmethod
+    def is_valid_sudoku(board: [[str]]) -> bool:
+        rows = [set() for _ in range(9)]
+        cols = [set() for _ in range(9)]
+        boxes = [set() for _ in range(9)]
+        for r in range(9):
+            for c in range(9):
+                digit = board[r][c]
+                if digit == '.':
+                    continue
+                box = r // 3 * 3 + c // 3
+                if digit in rows[r] or digit in cols[c] or digit in boxes[box]:
+                    return False
+                rows[r].add(digit)
+                cols[c].add(digit)
+                boxes[box].add(digit)
+        return True
+
     # 38: /problems/count-and-say/
     @staticmethod
     def count_and_say(n: int) -> str:
