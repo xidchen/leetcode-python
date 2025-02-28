@@ -184,6 +184,15 @@ def swap_pairs():
     print(f"Swap nodes in pairs: {res}")
 
 
+# 25: /problems/reverse-nodes-in-k-group/
+def reverse_k_group():
+    head = lc.list_to_linked_list([1, 2, 3, 4, 5])
+    k = 2
+    res_linked_list = lc.reverse_k_group(head, k)
+    res = lc.linked_list_to_list(res_linked_list)
+    print(f"Reverse nodes in k group: {res}")
+
+
 # 26: /problems/remove-duplicates-from-sorted-array/
 def remove_duplicates():
     nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
@@ -295,6 +304,7 @@ if __name__ == "__main__":
     generate_parenthesis()
     merge_k_lists()
     swap_pairs()
+    reverse_k_group()
     remove_duplicates()
     remove_element()
     str_str()
