@@ -621,6 +621,70 @@ class Leetcode:
                 boxes[box].add(digit)
         return True
 
+    # 37: /problems/sudoku-solver/
+    @staticmethod
+    def solve_sudoku(board: [[str]]) -> None:
+
+        def eliminate(r, c):
+            for i in range(size):
+                if isinstance(board[i][c], set):
+                    board[i][c].discard(board[r][c])
+                if isinstance(board[r][i], set):
+                    board[r][i].discard(board[r][c])
+            for box_row in range(3 * (r // 3), 3 + 3 * (r // 3)):
+                for box_col in range(3 * (c // 3), 3 + 3 * (c // 3)):
+                    if isinstance(board[box_row][box_col], set):
+                        board[box_row][box_col].discard(board[r][c])
+
+        def find_new():
+            for r in range(size):
+                for c in range(size):
+                    if isinstance(board[r][c], set) and len(board[r][c]) == 1:
+                        board[r][c] = board[r][c].pop()
+                        new_digits.append((r, c))
+
+        def is_valid(r, c, digit):
+            for i in range(size):
+                if board[r][i] == digit or board[i][c] == digit:
+                    return False
+            n = size // 3
+            for r in range(n * (r // n), n + n * (r // n)):
+                for c in range(n * (c // n), n + n * (c // n)):
+                    if board[r][c] == digit:
+                        return False
+            return True
+
+        def solve_recursive():
+            for r in range(size):
+                for c in range(size):
+                    if len(board[r][c]) == 1:
+                        continue
+                    for digit in board[r][c]:
+                        if is_valid(r, c, digit):
+                            save_set = board[r][c]
+                            board[r][c] = digit
+                            if solve_recursive():
+                                return True
+                            board[r][c] = save_set
+                    return False
+            return True
+
+        size = 9
+        new_digits = []
+        for row in range(size):
+            board[row] = [digit for digit in board[row]]
+            for col in range(size):
+                if board[row][col] == '.':
+                    board[row][col] = {str(i) for i in range(1, 10)}
+                else:
+                    new_digits.append((row, col))
+        while new_digits:
+            for row, col in new_digits:
+                eliminate(row, col)
+                new_digits = []
+                find_new()
+        solve_recursive()
+
     # 38: /problems/count-and-say/
     @staticmethod
     def count_and_say(n: int) -> str:

@@ -278,6 +278,25 @@ def is_valid_sudoku():
     res = lc.is_valid_sudoku(board)
     print(f"Valid sudoku: {res}")
 
+# 37: /problems/sudoku-solver/
+def solve_sudoku():
+    board = [
+        ["4", "5", ".", ".", ".", "9", "3", ".", "1"],
+        [".", ".", ".", ".", "8", ".", "9", ".", "."],
+        [".", "2", ".", ".", ".", ".", ".", ".", "."],
+        [".", ".", "2", ".", ".", "4", ".", ".", "."],
+        [".", ".", "8", ".", ".", ".", ".", ".", "3"],
+        ["3", "4", ".", ".", "7", ".", ".", "5", "."],
+        ["1", "9", ".", ".", ".", "8", ".", ".", "5"],
+        [".", ".", "3", ".", ".", ".", ".", ".", "."],
+        [".", ".", ".", "6", ".", ".", ".", "7", "."]
+    ]
+    lc.solve_sudoku(board)
+    print(f"Sudoku solver: [")
+    for i in range(9):
+        print(f"\t{board[i]}")
+    print("]")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -316,3 +335,4 @@ if __name__ == "__main__":
     search_range()
     search_insert()
     is_valid_sudoku()
+    solve_sudoku()
