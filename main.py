@@ -297,6 +297,12 @@ def solve_sudoku():
         print(f"\t{board[i]}")
     print("]")
 
+# 38: /problems/count-and-say/
+def count_and_say():
+    n = 4
+    res = lc.count_and_say(n)
+    print(f"Count and say: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -336,3 +342,4 @@ if __name__ == "__main__":
     search_insert()
     is_valid_sudoku()
     solve_sudoku()
+    count_and_say()
