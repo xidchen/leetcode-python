@@ -688,21 +688,16 @@ class Leetcode:
     # 38: /problems/count-and-say/
     @staticmethod
     def count_and_say(n: int) -> str:
-        if n == 1:
-            return '1'
-        s = '1'
-        for i in range(n - 1):
-            previous, count = s[0], 0
-            new = ''
-            for current in s:
-                if previous != current:
-                    new += str(count) + previous
-                    previous, count = current, 1
+        seq = [1]
+        for _ in range(n - 1):
+            next_seq = []
+            for num in seq:
+                if not next_seq or next_seq[-1] != num:
+                    next_seq += [1, num]
                 else:
-                    count += 1
-            new += str(count) + previous
-            s = new
-        return s
+                    next_seq[-2] += 1
+            seq = next_seq
+        return "".join(map(str, seq))
 
     # 43: /problems/multiply-strings/
     @staticmethod
