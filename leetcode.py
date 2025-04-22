@@ -24,12 +24,14 @@ class Leetcode:
 
     # 1: /problems/two-sum/
     @staticmethod
-    def two_sum(nums: [int], target: int) -> [int]:
+    def two_sum(nums: list[int], target: int) -> list[int] | None:
         dic = {}
         for i, n in enumerate(nums):
             if n in dic:
                 return [dic[n], i]
             dic[target - n] = i
+            return None
+        return None
 
     # 2: /problems/add-two-numbers/
     @staticmethod
@@ -62,7 +64,7 @@ class Leetcode:
 
     # 4: /problems/median-of-two-sorted-arrays/
     @staticmethod
-    def find_median_sorted_arrays(a: [int], b: [int]) -> float:
+    def find_median_sorted_arrays(a: list[int], b: list[int]) -> float:
 
         def get_kth_smallest(a_start: int, b_start: int, k: int):
             if k <= 0 or k > len(a) - a_start + len(b) - b_start:
@@ -178,7 +180,7 @@ class Leetcode:
 
     # 11: /problems/container-with-most-water/
     @staticmethod
-    def max_area(height: [int]) -> int:
+    def max_area(height: list[int]) -> int:
         max_area, i, j = 0, 0, len(height) - 1
         while i < j:
             max_area = max(max_area, min(height[i], height[j]) * (j - i))
@@ -219,7 +221,7 @@ class Leetcode:
 
     # 14: /problems/longest-common-prefix/
     @staticmethod
-    def longest_common_prefix(strs: [str]) -> str:
+    def longest_common_prefix(strs: list[str]) -> str:
         if not strs:
             return ''
         if len(strs) == 1:
@@ -235,10 +237,10 @@ class Leetcode:
 
     # 15: /problems/3sum
     @staticmethod
-    def three_sum(nums: [int]) -> [[int]]:
+    def three_sum(nums: list[int]) -> list[list[int]]:
         import bisect
         ref: dict[int, int] = {}
-        res: [[int]] = []
+        res: list[list[int]] = []
         for n in nums:
             ref[n] = ref[n] + 1 if n in ref else 1
         nums = sorted(ref)
@@ -259,7 +261,7 @@ class Leetcode:
 
     # 16: /problems/3sum-closest/
     @staticmethod
-    def three_sum_closest(nums: [int], target: int) -> int:
+    def three_sum_closest(nums: list[int], target: int) -> int:
         n = len(nums)
         nums.sort()
         res = sum(nums[:3])
@@ -283,7 +285,7 @@ class Leetcode:
 
     # 17: /problems/letter-combinations-of-a-phone-number/
     @staticmethod
-    def letter_combinations(digits: str) -> [str]:
+    def letter_combinations(digits: str) -> list[str]:
         if not digits or '0' in digits or '1' in digits:
             return []
         results = [[]]
@@ -307,9 +309,9 @@ class Leetcode:
 
     # 18: /problems/4sum/
     @staticmethod
-    def four_sum(nums: [int], target: int) -> [[int]]:
+    def four_sum(nums: list[int], target: int) -> list[list[int]]:
 
-        def k_sum(n: [int], t: int, k: int) -> [[int]]:
+        def k_sum(n: list[int], t: int, k: int) -> list[list[int]]:
             res = []
             if len(n) < k or t < n[0] * k or n[-1] * k < t:
                 return res
@@ -321,7 +323,7 @@ class Leetcode:
                         res.append([n[i]] + st)
             return res
 
-        def two_sum(n: [int], t: int) -> [[int]]:
+        def two_sum(n: list[int], t: int) -> list[list[int]]:
             res = []
             lo, hi = 0, len(n) - 1
             while lo < hi:
@@ -384,7 +386,7 @@ class Leetcode:
 
     # 22: /problems/generate-parentheses/
     @staticmethod
-    def generate_parenthesis(n: int) -> [str]:
+    def generate_parenthesis(n: int) -> list[str]:
 
         def backtrack(s='', left=0, right=0):
             if len(s) == 2 * n:
@@ -401,7 +403,7 @@ class Leetcode:
 
     # 23: /problems/merge-k-sorted-lists/
     @staticmethod
-    def merge_k_lists(lists: [ListNode]) -> [ListNode]:
+    def merge_k_lists(lists: list[ListNode]) -> ListNode:
         import heapq
         prev = dummy = ListNode(None)
         next_nodes, heap = [], []
@@ -452,7 +454,7 @@ class Leetcode:
 
     # 26: /problems/remove-duplicates-from-sorted-array/
     @staticmethod
-    def remove_duplicates(nums: [int]) -> int:
+    def remove_duplicates(nums: list[int]) -> int:
         next_new = 0
         for i in range(len(nums)):
             if i == 0 or nums[i] != nums[i - 1]:
@@ -462,7 +464,7 @@ class Leetcode:
 
     # 27: /problems/remove-element/
     @staticmethod
-    def remove_elements(nums: [int], val: int) -> int:
+    def remove_elements(nums: list[int], val: int) -> int:
         k = 0
         for i in range(len(nums)):
             if nums[i] != val:
@@ -493,7 +495,7 @@ class Leetcode:
 
     # 30: /problems/substring-with-concatenation-of-all-words/
     @staticmethod
-    def find_substring(s: str, words: [str]) -> [int]:
+    def find_substring(s: str, words: list[str]) -> list[int]:
         res = []
         if not words or len(s) < len(words) * len(words[0]):
             return res
@@ -522,7 +524,7 @@ class Leetcode:
 
     # 31: /problems/next-permutation/
     @staticmethod
-    def next_permutation(nums: [int]) -> None:
+    def next_permutation(nums: list[int]) -> None:
         i = len(nums) - 2
         while i >= 0 and nums[i + 1] <= nums[i]:
             i -= 1
@@ -551,7 +553,7 @@ class Leetcode:
 
     # 33: /problems/search-in-rotated-sorted-array/
     @staticmethod
-    def search(nums: [int], target: int) -> int:
+    def search(nums: list[int], target: int) -> int:
         left, right = 0, len(nums) - 1
         while left <= right:
             mid = (left + right) // 2
@@ -571,7 +573,7 @@ class Leetcode:
 
     # 34: /problems/find-first-and-last-position-of-element-in-sorted-array/
     @staticmethod
-    def search_range(nums: [int], target: int) -> [int]:
+    def search_range(nums: list[int], target: int) -> list[int]:
 
         def binary(tgt, left, right):
             if left > right:
@@ -589,7 +591,7 @@ class Leetcode:
 
     # 35: /problems/search-insert-position/
     @staticmethod
-    def search_insert(nums: [str], target: int) -> int:
+    def search_insert(nums: list[int], target: int) -> int:
         left = 0
         right = len(nums) - 1
         while left <= right:
@@ -604,7 +606,7 @@ class Leetcode:
 
     # 36: /problems/valid-sudoku/
     @staticmethod
-    def is_valid_sudoku(board: [[str]]) -> bool:
+    def is_valid_sudoku(board: list[list[str]]) -> bool:
         rows = [set() for _ in range(9)]
         cols = [set() for _ in range(9)]
         boxes = [set() for _ in range(9)]
@@ -623,67 +625,39 @@ class Leetcode:
 
     # 37: /problems/sudoku-solver/
     @staticmethod
-    def solve_sudoku(board: [[str]]) -> None:
+    def solve_sudoku(board: list[list[str]]) -> None:
 
-        def eliminate(r, c):
-            for i in range(size):
-                if isinstance(board[i][c], set):
-                    board[i][c].discard(board[r][c])
-                if isinstance(board[r][i], set):
-                    board[r][i].discard(board[r][c])
-            for box_row in range(3 * (r // 3), 3 + 3 * (r // 3)):
-                for box_col in range(3 * (c // 3), 3 + 3 * (c // 3)):
-                    if isinstance(board[box_row][box_col], set):
-                        board[box_row][box_col].discard(board[r][c])
-
-        def find_new():
-            for r in range(size):
-                for c in range(size):
-                    if isinstance(board[r][c], set) and len(board[r][c]) == 1:
-                        board[r][c] = board[r][c].pop()
-                        new_digits.append((r, c))
-
-        def is_valid(r, c, digit):
-            for i in range(size):
-                if board[r][i] == digit or board[i][c] == digit:
-                    return False
-            n = size // 3
-            for r in range(n * (r // n), n + n * (r // n)):
-                for c in range(n * (c // n), n + n * (c // n)):
-                    if board[r][c] == digit:
+        def solve(sudoku_board):
+            for row in range(9):
+                for col in range(9):
+                    if sudoku_board[row][col] == '.':
+                        for num in map(str, range(1, 10)):
+                            if is_valid(sudoku_board, row, col, num):
+                                sudoku_board[row][col] = num
+                                if solve(sudoku_board):
+                                    return True
+                                sudoku_board[row][col] = '.'
                         return False
             return True
 
-        def solve_recursive():
-            for r in range(size):
-                for c in range(size):
-                    if len(board[r][c]) == 1:
-                        continue
-                    for digit in board[r][c]:
-                        if is_valid(r, c, digit):
-                            save_set = board[r][c]
-                            board[r][c] = digit
-                            if solve_recursive():
-                                return True
-                            board[r][c] = save_set
+        def is_valid(sudoku_board, row, col, num):
+            for x in range(9):
+                if sudoku_board[row][x] == num:
                     return False
+            for x in range(9):
+                if sudoku_board[x][col] == num:
+                    return False
+            box_row, box_col = 3 * (row // 3), 3 * (col // 3)
+            for i in range(box_row, box_row + 3):
+                for j in range(box_col, box_col + 3):
+                    if sudoku_board[i][j] == num:
+                        return False
             return True
 
-        size = 9
-        new_digits = []
-        for row in range(size):
-            board[row] = [digit for digit in board[row]]
-            for col in range(size):
-                if board[row][col] == '.':
-                    board[row][col] = {str(i) for i in range(1, 10)}
-                else:
-                    new_digits.append((row, col))
-        while new_digits:
-            for row, col in new_digits:
-                eliminate(row, col)
-                new_digits = []
-                find_new()
-        solve_recursive()
+        if not board or len(board) != 9 or len(board[0]) != 9:
+            return
+        solve(board)
+
 
     # 38: /problems/count-and-say/
     @staticmethod
@@ -711,7 +685,7 @@ class Leetcode:
 
     # 53: /problems/maximum-subarray/
     @staticmethod
-    def max_sub_array(nums: [int]) -> int:
+    def max_sub_array(nums: list[int]) -> int:
         max_current, max_global = nums[0], nums[0]
         for i in range(1, len(nums)):
             max_current = max(nums[i], max_current + nums[i])
@@ -721,7 +695,7 @@ class Leetcode:
 
     # 54: /problems/spiral-matrix/
     @staticmethod
-    def spiral_order(matrix: [[int]]) -> [int]:
+    def spiral_order(matrix: list[list[int]]) -> list[int]:
         res = []
         while matrix:
             res += matrix.pop(0)
@@ -749,7 +723,7 @@ class Leetcode:
 
     # 66: /problems/plus-one/
     @staticmethod
-    def plus_one(digits: [int]) -> [int]:
+    def plus_one(digits: list[int]) -> list[int]:
         s = ''.join([str(d) for d in digits])
         return [int(x) for x in str(int(s) + 1)]
 
@@ -779,7 +753,7 @@ class Leetcode:
 
     # 80: /problems/remove-duplicates-from-sorted-array-ii/
     @staticmethod
-    def remove_duplicates_ii(nums: [int]) -> int:
+    def remove_duplicates_ii(nums: list[int]) -> int:
         for x in set(nums):
             if nums.count(x) > 2:
                 while nums.count(x) > 2:
@@ -788,7 +762,7 @@ class Leetcode:
 
     # 88: /problems/merge-sorted-array/
     @staticmethod
-    def merge(nums1: [int], m: int, nums2: [int], n: int) -> None:
+    def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
         nums1[m:] = nums2[:n]
         nums1.sort()
 
@@ -834,7 +808,7 @@ class Leetcode:
 
     # 102: /problems/binary-tree-level-order-traversal/
     @staticmethod
-    def level_order(root: TreeNode) -> [[int]]:
+    def level_order(root: TreeNode) -> list[list[int]]:
         queue = res = []
         if root:
             queue = [root]
@@ -852,7 +826,7 @@ class Leetcode:
 
     # 121: /problems/best-time-to-buy-and-sell-stock/
     @staticmethod
-    def max_profit(prices: [int]) -> int:
+    def max_profit(prices: list[int]) -> int:
         max_profit = 0
         price_buy = price_sell = prices[0]
         for price in prices:
@@ -878,10 +852,11 @@ class Leetcode:
                     fast = fast.next
                     slow = slow.next
                 return fast
+        return None
 
     # 200: /problems/number-of-islands/
     @staticmethod
-    def num_islands(grid: [[str]]) -> int:
+    def num_islands(grid: list[list[str]]) -> int:
 
         def dfs(r: int, c: int) -> None:
             if (0 <= r < len(grid)
@@ -942,7 +917,7 @@ class Leetcode:
 
     # 217: /problems/contains-duplicate/
     @staticmethod
-    def contains_duplicate(nums: [int]) -> bool:
+    def contains_duplicate(nums: list[int]) -> bool:
         s = set()
         for n in nums:
             if n in s:
@@ -1002,7 +977,7 @@ class Leetcode:
 
     # 438: /problems/find-all-anagrams-in-a-string/
     @staticmethod
-    def find_anagrams(s: str, p: str) -> [int]:
+    def find_anagrams(s: str, p: str) -> list[int]:
         res = []
         if len(s) < len(p):
             return res
@@ -1048,7 +1023,7 @@ class Leetcode:
 
     # 589: /problems/n-ary-tree-preorder-traversal/
     @staticmethod
-    def preorder(root: Node) -> [int]:
+    def preorder(root: Node) -> list[int]:
         if not root:
             return []
         stack = [root]
@@ -1061,7 +1036,7 @@ class Leetcode:
 
     # 704: /problems/binary-search/
     @staticmethod
-    def binary_search(nums: [int], target: int) -> int:
+    def binary_search(nums: list[int], target: int) -> int:
         i_l, i_r = 0, len(nums)
         while True:
             i_m = (i_l + i_r) // 2
@@ -1081,7 +1056,7 @@ class Leetcode:
 
     # 724: /problems/find-pivot-index/
     @staticmethod
-    def pivot_index(nums: [int]) -> int:
+    def pivot_index(nums: list[int]) -> int:
         sum_l, sum_r = 0, sum(nums)
         for i, num in enumerate(nums):
             sum_r -= num
@@ -1092,7 +1067,7 @@ class Leetcode:
 
     # 733: /problems/flood-fill/
     @staticmethod
-    def flood_fill(image: [[int]], sr: int, sc: int, color: int) -> [[int]]:
+    def flood_fill(image: list[list[int]], sr: int, sc: int, color: int) -> list[list[int]]:
         start_color = image[sr][sc]
         filled = set()
 
@@ -1114,7 +1089,7 @@ class Leetcode:
 
     # 746: /problems/min-cost-climbing-stairs/
     @staticmethod
-    def min_cost_climbing_stairs(cost: [int]) -> int:
+    def min_cost_climbing_stairs(cost: list[int]) -> int:
         a, b = cost[0], cost[1]
         for i in range(2, len(cost)):
             a, b = b, min(a, b) + cost[i]
@@ -1149,7 +1124,7 @@ class Leetcode:
 
     # 1046: /problems/last-stone-weight/
     @staticmethod
-    def last_stone_weight(stones: [int]) -> int:
+    def last_stone_weight(stones: list[int]) -> int:
         while stones:
             if len(stones) == 1:
                 return stones[0]
@@ -1164,14 +1139,14 @@ class Leetcode:
 
     # 1480: /problems/running-sum-of-1d-array/
     @staticmethod
-    def running_sum(nums: [int]) -> [int]:
+    def running_sum(nums: list[int]) -> list[int]:
         for i in range(1, len(nums)):
             nums[i] += nums[i - 1]
         return nums
 
     # 1706: /problems/where-will-the-ball-fall/
     @staticmethod
-    def find_ball(grid: [[int]]) -> [int]:
+    def find_ball(grid: list[list[int]]) -> list[int]:
         res = [0] * len(grid[0])
         for c in range(len(grid[0])):
             current_c = c

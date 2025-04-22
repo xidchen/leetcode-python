@@ -215,12 +215,14 @@ def str_str():
     res = lc.str_str(haystack, needle)
     print(f"Find the index of the first occurrence in a string: {res}")
 
+
 # 29: /problems/divide-two-integers/
 def divide():
     dividend = 7
     divisor = -3
     res = lc.divide(dividend, divisor)
     print(f"Divide two integers: {res}")
+
 
 # 30: /problems/substring-with-concatenation-of-all-words/
 def find_substring():
@@ -229,17 +231,20 @@ def find_substring():
     res = lc.find_substring(s, words)
     print(f"Substring with concatenation of all words: {res}")
 
+
 # 31: /problems/next-permutation/
 def next_permutation():
     nums = [4, 5, 3, 2, 1]
     lc.next_permutation(nums)
     print(f"Next permutation: {nums}")
 
+
 # 32: /problems/longest-valid-parentheses/
 def longest_valid_parentheses():
     s = ")()())"
     res = lc.longest_valid_parentheses(s)
     print(f"Longest valid parentheses: {res}")
+
 
 # 33: /problems/search-in-rotated-sorted-array/
 def search():
@@ -248,6 +253,7 @@ def search():
     res = lc.search(nums, target)
     print(f"Search in rotated sorted array: {res}")
 
+
 # 34: /problems/find-first-and-last-position-of-element-in-sorted-array/
 def search_range():
     nums = [5, 7, 7, 8, 8, 10]
@@ -255,12 +261,14 @@ def search_range():
     res = lc.search_range(nums, target)
     print(f"Find first and last position of element in sorted array: {res}")
 
+
 # 35: /problems/search-insert-position/
 def search_insert():
     nums = [1, 3, 5, 6]
     target = 0
     res = lc.search_insert(nums, target)
     print(f"Search insert position: {res}")
+
 
 # 36: /problems/valid-sudoku/
 def is_valid_sudoku():
@@ -277,6 +285,7 @@ def is_valid_sudoku():
     ]
     res = lc.is_valid_sudoku(board)
     print(f"Valid sudoku: {res}")
+
 
 # 37: /problems/sudoku-solver/
 def solve_sudoku():
@@ -297,11 +306,13 @@ def solve_sudoku():
         print(f"\t{board[i]}")
     print("]")
 
+
 # 38: /problems/count-and-say/
 def count_and_say():
     n = 4
     res = lc.count_and_say(n)
     print(f"Count and say: {res}")
+
 
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
