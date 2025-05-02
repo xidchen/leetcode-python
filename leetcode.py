@@ -673,6 +673,24 @@ class Leetcode:
             seq = next_seq
         return "".join(map(str, seq))
 
+    # 39: /problems/combination-sum/
+    @staticmethod
+    def combination_sum(candidates: list[int], target: int) -> list[list[int]]:
+        res = []
+        def helper(nums, nxt, t, p, r):
+            if t == 0:
+                r.append(p)
+                return
+            if nxt == len(nums):
+                return
+            i = 0
+            while t - i * nums[nxt] >= 0:
+                helper(nums, nxt + 1, t - i * nums[nxt], p + [nums[nxt]] * i, r)
+                i += 1
+        helper(candidates, 0, target, [], res)
+        return res
+
+
     # 43: /problems/multiply-strings/
     @staticmethod
     def multiply(num1: str, num2: str) -> str:

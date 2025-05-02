@@ -314,6 +314,14 @@ def count_and_say():
     print(f"Count and say: {res}")
 
 
+# 39: /problems/combination-sum/
+def combination_sum():
+    candidates = [2, 3, 5]
+    target = 8
+    res = lc.combination_sum(candidates, target)
+    print(f"Combination sum: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -354,3 +362,4 @@ if __name__ == "__main__":
     is_valid_sudoku()
     solve_sudoku()
     count_and_say()
+    combination_sum()
