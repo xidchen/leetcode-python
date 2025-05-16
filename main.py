@@ -322,6 +322,14 @@ def combination_sum():
     print(f"Combination sum: {res}")
 
 
+# 40: /problems/combination-sum-ii/
+def combination_sum_2():
+    candidates = [10, 1, 2, 7, 6, 1, 5]
+    target = 8
+    res = lc.combination_sum_2(candidates, target)
+    print(f"Combination sum II: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -363,3 +371,4 @@ if __name__ == "__main__":
     solve_sudoku()
     count_and_say()
     combination_sum()
+    combination_sum_2()

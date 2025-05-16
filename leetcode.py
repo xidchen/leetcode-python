@@ -690,6 +690,27 @@ class Leetcode:
         helper(candidates, 0, target, [], res)
         return res
 
+    # 40: /problems/combination-sum-ii/
+    @staticmethod
+    def combination_sum_2(candidates: list[int], target: int) -> list[list[int]]:
+        import collections
+        res = []
+        partials = [[]]
+        freq = list(collections.Counter(candidates).items())
+        for candidate, count in freq:
+            new_partials = []
+            for partial in partials:
+                partial_sum = sum(partial)
+                for i in range(count + 1):
+                    if partial_sum + candidate * i == target:
+                        res.append(partial + [candidate] * i)
+                    elif partial_sum + candidate * i < target:
+                        new_partials.append(partial + [candidate] * i)
+                    else:
+                        break
+            partials = new_partials
+        return res
+
 
     # 43: /problems/multiply-strings/
     @staticmethod
