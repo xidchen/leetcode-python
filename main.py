@@ -330,6 +330,13 @@ def combination_sum_2():
     print(f"Combination sum II: {res}")
 
 
+# 41: /problems/first-missing-positive/
+def first_missing_positive():
+    nums = [3, 4, -1, 1]
+    res = lc.first_missing_positive(nums)
+    print(f"First missing positive: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -372,3 +379,4 @@ if __name__ == "__main__":
     count_and_say()
     combination_sum()
     combination_sum_2()
+    first_missing_positive()
