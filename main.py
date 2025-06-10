@@ -337,6 +337,13 @@ def first_missing_positive():
     print(f"First missing positive: {res}")
 
 
+# 42: /problems/trapping-rain-water/
+def trap():
+    height = [4, 2, 0, 3, 2, 5]
+    res = lc.trap(height)
+    print(f"Trapping rain water: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -380,3 +387,4 @@ if __name__ == "__main__":
     combination_sum()
     combination_sum_2()
     first_missing_positive()
+    trap()
