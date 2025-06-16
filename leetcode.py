@@ -752,12 +752,20 @@ class Leetcode:
     # 43: /problems/multiply-strings/
     @staticmethod
     def multiply(num1: str, num2: str) -> str:
-        res = 0
-        n1, n2 = num1[::-1], num2[::-1]
-        for i, c1 in enumerate(n1):
-            for j, c2 in enumerate(n2):
-                res += int(c1) * int(c2) * 10 ** (i + j)
-        return str(res)
+        if num1 == '0' or num2 == '0':
+            return '0'
+        m, n = len(num1), len(num2)
+        res = [0] * (m + n)
+        num1, num2 = num1[::-1], num2[::-1]
+        for i in range(m):
+            for j in range(n):
+                res[i + j] += int(num1[i]) * int(num2[j])
+                res[i + j + 1] += res[i + j] // 10
+                res[i + j] %= 10
+        start = len(res) - 1
+        while start > 0 and res[start] == 0:
+            start -= 1
+        return ''.join(str(res[i]) for i in range(start, -1, -1))
 
     # 53: /problems/maximum-subarray/
     @staticmethod

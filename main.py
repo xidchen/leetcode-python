@@ -344,6 +344,13 @@ def trap():
     print(f"Trapping rain water: {res}")
 
 
+# 43: /problems/multiply-strings/
+def multiply():
+    num1 = "123"
+    num2 = "456"
+    res = lc.multiply(num1, num2)
+    print(f"Multiply strings: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -388,3 +395,4 @@ if __name__ == "__main__":
     combination_sum_2()
     first_missing_positive()
     trap()
+    multiply()
