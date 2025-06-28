@@ -769,7 +769,7 @@ class Leetcode:
 
     # 44: /problems/wildcard-matching/
     @staticmethod
-    def wildcard_match(s: str, p: str) -> bool:
+    def is_match_wildcard(s: str, p: str) -> bool:
         i = j = 0
         star_idx = s_idx = -1
         while i < len(s):

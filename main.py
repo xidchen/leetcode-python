@@ -353,10 +353,10 @@ def multiply():
 
 
 # 44: /problems/wildcard-matching/
-def wildcard_match():
+def is_match_wildcard():
     s = "aa"
     p = "a*"
-    res = lc.wildcard_match(s, p)
+    res = lc.is_match_wildcard(s, p)
     print(f"Wildcard matching: {res}")
 
 if __name__ == "__main__":
@@ -404,4 +404,4 @@ if __name__ == "__main__":
     first_missing_positive()
     trap()
     multiply()
-    wildcard_match()
+    is_match_wildcard()
