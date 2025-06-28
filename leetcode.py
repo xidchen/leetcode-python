@@ -770,17 +770,25 @@ class Leetcode:
     # 44: /problems/wildcard-matching/
     @staticmethod
     def wildcard_match(s: str, p: str) -> bool:
-        m, n = len(s), len(p)
-        dp = [[False] * (n + 1) for _ in range(m + 1)]
-        dp[m][n] = True
-        for i in range(m, -1, -1):
-            for j in range(n - 1, -1, -1):
-                first_match = i < m and (s[i] == p[j] or p[j] == '?')
-                if p[j] == '*':
-                    dp[i][j] = dp[i][j + 1] or (i < m and dp[i + 1][j])
-                else:
-                    dp[i][j] = first_match and dp[i + 1][j + 1]
-        return dp[0][0]
+        i = j = 0
+        star_idx = s_idx = -1
+        while i < len(s):
+            if j < len(p) and (p[j] == '?' or s[i] == p[j]):
+                i += 1
+                j += 1
+            elif j < len(p) and p[j] == '*':
+                star_idx = j
+                s_idx = i
+                j += 1
+            elif star_idx != -1:
+                j = star_idx + 1
+                s_idx += 1
+                i = s_idx
+            else:
+                return False
+        while j < len(p) and p[j] == '*':
+            j += 1
+        return j == len(p)
 
     # 53: /problems/maximum-subarray/
     @staticmethod
