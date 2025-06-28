@@ -351,6 +351,14 @@ def multiply():
     res = lc.multiply(num1, num2)
     print(f"Multiply strings: {res}")
 
+
+# 44: /problems/wildcard-matching/
+def wildcard_match():
+    s = "aa"
+    p = "a*"
+    res = lc.wildcard_match(s, p)
+    print(f"Wildcard matching: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -396,3 +404,4 @@ if __name__ == "__main__":
     first_missing_positive()
     trap()
     multiply()
+    wildcard_match()

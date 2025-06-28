@@ -767,6 +767,21 @@ class Leetcode:
             start -= 1
         return ''.join(str(res[i]) for i in range(start, -1, -1))
 
+    # 44: /problems/wildcard-matching/
+    @staticmethod
+    def wildcard_match(s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        dp = [[False] * (n + 1) for _ in range(m + 1)]
+        dp[m][n] = True
+        for i in range(m, -1, -1):
+            for j in range(n - 1, -1, -1):
+                first_match = i < m and (s[i] == p[j] or p[j] == '?')
+                if p[j] == '*':
+                    dp[i][j] = dp[i][j + 1] or (i < m and dp[i + 1][j])
+                else:
+                    dp[i][j] = first_match and dp[i + 1][j + 1]
+        return dp[0][0]
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:
