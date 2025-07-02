@@ -359,6 +359,14 @@ def is_match_wildcard():
     res = lc.is_match_wildcard(s, p)
     print(f"Wildcard matching: {res}")
 
+
+# 45: /problems/jump-game-ii/
+def jump():
+    nums = [2, 3, 1, 1, 4]
+    res = lc.jump(nums)
+    print(f"Jump game II: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -405,3 +413,4 @@ if __name__ == "__main__":
     trap()
     multiply()
     is_match_wildcard()
+    jump()

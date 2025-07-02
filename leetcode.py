@@ -790,6 +790,23 @@ class Leetcode:
             j += 1
         return j == len(p)
 
+    # 45: /problems/jump-game-ii/
+    @staticmethod
+    def jump(nums: list[int]) -> int:
+        if len(nums) <= 1:
+            return 0
+        jumps = 0
+        current_end = 0
+        farthest = 0
+        for i in range(len(nums) - 1):
+            farthest = max(farthest, i + nums[i])
+            if i == current_end:
+                jumps += 1
+                current_end = farthest
+                if current_end >= len(nums) - 1:
+                    break
+        return jumps
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:
