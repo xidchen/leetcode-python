@@ -807,6 +807,21 @@ class Leetcode:
                     break
         return jumps
 
+    # 46: /problems/permutations/
+    @staticmethod
+    def permute(nums: list[int]) -> list[list[int]]:
+        result = []
+        def backtrack(start):
+            if start == len(nums):
+                result.append(nums[:])
+                return
+            for i in range(start, len(nums)):
+                nums[start], nums[i] = nums[i], nums[start]
+                backtrack(start + 1)
+                nums[start], nums[i] = nums[i], nums[start]
+        backtrack(0)
+        return result
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:

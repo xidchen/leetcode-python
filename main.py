@@ -367,6 +367,13 @@ def jump():
     print(f"Jump game II: {res}")
 
 
+# 46: /problems/permutations/
+def permute():
+    nums = [1, 2, 3]
+    res = lc.permute(nums)
+    print(f"Permutations: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -414,3 +421,4 @@ if __name__ == "__main__":
     multiply()
     is_match_wildcard()
     jump()
+    permute()
