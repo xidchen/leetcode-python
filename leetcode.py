@@ -822,6 +822,25 @@ class Leetcode:
         backtrack(0)
         return result
 
+    # 47: /problems/permutations-ii/
+    @staticmethod
+    def permute_unique(nums: list[int]) -> list[list[int]]:
+        result = []
+        def backtrack(start):
+            used = set()
+            if start == len(nums):
+                result.append(nums[:])
+                return
+            for i in range(start, len(nums)):
+                if nums[i] in used:
+                    continue
+                used.add(nums[i])
+                nums[start], nums[i] = nums[i], nums[start]
+                backtrack(start + 1)
+                nums[start], nums[i] = nums[i], nums[start]
+        backtrack(0)
+        return result
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:

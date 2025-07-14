@@ -374,6 +374,13 @@ def permute():
     print(f"Permutations: {res}")
 
 
+# 47: /problems/permutations-ii/
+def permute_unique():
+    nums = [1, 1, 2]
+    res = lc.permute_unique(nums)
+    print(f"Permutations II: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -422,3 +429,4 @@ if __name__ == "__main__":
     is_match_wildcard()
     jump()
     permute()
+    permute_unique()
