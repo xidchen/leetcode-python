@@ -841,6 +841,16 @@ class Leetcode:
         backtrack(0)
         return result
 
+    # 48: /problems/rotate-image/
+    @staticmethod
+    def rotate(matrix: list[list[int]]) -> None:
+        n = len(matrix)
+        for i in range(n):
+            for j in range(i, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        for i in range(n):
+            matrix[i].reverse()
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:

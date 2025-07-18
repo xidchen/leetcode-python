@@ -381,6 +381,13 @@ def permute_unique():
     print(f"Permutations II: {res}")
 
 
+# 48: /problems/rotate-image/
+def rotate():
+    matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+    lc.rotate(matrix)
+    print(f"Rotate image: {matrix}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -430,3 +437,4 @@ if __name__ == "__main__":
     jump()
     permute()
     permute_unique()
+    rotate()
