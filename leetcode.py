@@ -851,6 +851,17 @@ class Leetcode:
         for i in range(n):
             matrix[i].reverse()
 
+    # 49: /problems/group-anagrams/
+    @staticmethod
+    def group_anagrams(strs: list[str]) -> list[list[str]]:
+        anagram_map = {}
+        for s in strs:
+            sorted_key = ''.join(sorted(s))
+            if sorted_key not in anagram_map:
+                anagram_map[sorted_key] = []
+            anagram_map[sorted_key].append(s)
+        return list(anagram_map.values())
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:

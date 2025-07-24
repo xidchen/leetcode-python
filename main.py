@@ -388,6 +388,13 @@ def rotate():
     print(f"Rotate image: {matrix}")
 
 
+# 49: /problems/group-anagrams/
+def group_anagrams():
+    strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
+    res = lc.group_anagrams(strs)
+    print(f"Group anagrams: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -438,3 +445,4 @@ if __name__ == "__main__":
     permute()
     permute_unique()
     rotate()
+    group_anagrams()
