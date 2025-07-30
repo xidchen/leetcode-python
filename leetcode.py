@@ -862,6 +862,23 @@ class Leetcode:
             anagram_map[sorted_key].append(s)
         return list(anagram_map.values())
 
+    # 50: /problems/powx-n/
+    @staticmethod
+    def my_pow(x: float, n: int) -> float:
+        if n == 0:
+            return 1.0
+        if n < 0:
+            x = 1 / x
+            n = -n
+        result = 1.0
+        current_power = x
+        while n > 0:
+            if n % 2 == 1:
+                result *= current_power
+            current_power *= current_power
+            n //= 2
+        return result
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:

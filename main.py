@@ -395,6 +395,14 @@ def group_anagrams():
     print(f"Group anagrams: {res}")
 
 
+# 50: /problems/powx-n/
+def my_pow():
+    x = 2.00000
+    n = 10
+    res = lc.my_pow(x, n)
+    print(f"Powx-n: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -446,3 +454,4 @@ if __name__ == "__main__":
     permute_unique()
     rotate()
     group_anagrams()
+    my_pow()
