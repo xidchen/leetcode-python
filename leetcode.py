@@ -871,11 +871,11 @@ class Leetcode:
             x = 1 / x
             n = -n
         result = 1.0
-        current_power = x
+        base = x
         while n > 0:
             if n % 2 == 1:
-                result *= current_power
-            current_power *= current_power
+                result *= base
+            base *= base
             n //= 2
         return result
 
