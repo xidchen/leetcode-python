@@ -397,10 +397,10 @@ def group_anagrams():
 
 # 50: /problems/powx-n/
 def my_pow():
-    x = 2.00000
+    x = 2.0
     n = 10
     res = lc.my_pow(x, n)
-    print(f"Powx-n: {res}")
+    print(f"Pow({x}, {n}): {res}")
 
 
 if __name__ == "__main__":
