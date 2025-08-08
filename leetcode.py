@@ -879,6 +879,33 @@ class Leetcode:
             n //= 2
         return result
 
+    # 51: /problems/n-queens/
+    @staticmethod
+    def solve_n_queens(n: int) -> list[list[int]]:
+        result = []
+        board = [['.' for _ in range(n)] for _ in range(n)]
+        cols = set()
+        diag1 = set()
+        diag2 = set()
+        def backtrack(r, cs, d1, d2, b):
+            if r == n:
+                result.append([''.join(r) for r in b])
+                return
+            for c in range(n):
+                if c in cs or r - c in d1 or r + c in d2:
+                    continue
+                b[r][c] = 'Q'
+                cs.add(c)
+                d1.add(r - c)
+                d2.add(r + c)
+                backtrack(r + 1, cs, d1, d2, b)
+                cs.remove(c)
+                d1.remove(r - c)
+                d2.remove(r + c)
+                b[r][c] = '.'
+        backtrack(0, cols, diag1, diag2, board)
+        return result
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:

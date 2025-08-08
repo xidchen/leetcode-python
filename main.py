@@ -403,6 +403,13 @@ def my_pow():
     print(f"Pow({x}, {n}): {res}")
 
 
+# 51: /problems/n-queens/
+def solve_n_queens():
+    n = 4
+    res = lc.solve_n_queens(n)
+    print(f"{n}-Queens: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -455,3 +462,4 @@ if __name__ == "__main__":
     rotate()
     group_anagrams()
     my_pow()
+    solve_n_queens()
