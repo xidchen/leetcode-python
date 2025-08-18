@@ -906,6 +906,27 @@ class Leetcode:
         backtrack(0, cols, diag1, diag2, board)
         return result
 
+    # 52: /problems/n-queens-ii/
+    @staticmethod
+    def total_n_queens(n: int) -> int:
+        full = (1 << n) - 1
+        def backtrack(r, c, d1, d2):
+            if r == n:
+                return 1
+            count = 0
+            avail = full & ~(c | d1 | d2)
+            while avail:
+                bit = avail & -avail
+                avail &= avail - 1
+                count += backtrack(
+                    r + 1,
+                    c | bit,
+                    ((d1 | bit) << 1) & full,
+                    (d2 | bit) >> 1
+                )
+            return count
+        return backtrack(0, 0, 0, 0)
+
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:
@@ -1153,7 +1174,7 @@ class Leetcode:
     @staticmethod
     def lowest_common_ancestor(root: TreeNode,
                                p: TreeNode,
-                               q: TreeNode) -> None or TreeNode:
+                               q: TreeNode) -> None | TreeNode:
         large = max(p.val, q.val)
         small = min(p.val, q.val)
         while root:

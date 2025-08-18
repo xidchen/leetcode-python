@@ -407,7 +407,14 @@ def my_pow():
 def solve_n_queens():
     n = 4
     res = lc.solve_n_queens(n)
-    print(f"{n}-Queens: {res}")
+    print(f"Solve {n}-Queens: {res}")
+
+
+# 52: /problems/n-queens-ii/
+def total_n_queens():
+    n = 4
+    res = lc.total_n_queens(n)
+    print(f"Total {n}-Queens: {res}")
 
 
 if __name__ == "__main__":
@@ -463,3 +470,4 @@ if __name__ == "__main__":
     group_anagrams()
     my_pow()
     solve_n_queens()
+    total_n_queens()
