@@ -417,6 +417,13 @@ def total_n_queens():
     print(f"Total {n}-Queens: {res}")
 
 
+# 53: /problems/maximum-subarray/
+def max_sub_array():
+    nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+    res = lc.max_sub_array(nums)
+    print(f"Maximum subarray: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -471,3 +478,4 @@ if __name__ == "__main__":
     my_pow()
     solve_n_queens()
     total_n_queens()
+    max_sub_array()
