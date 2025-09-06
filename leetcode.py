@@ -930,10 +930,14 @@ class Leetcode:
     # 53: /problems/maximum-subarray/
     @staticmethod
     def max_sub_array(nums: list[int]) -> int:
-        current_max = global_max = nums[0]
-        for i in range(1, len(nums)):
-            current_max = max(nums[i], current_max + nums[i])
-            global_max = max(current_max, global_max)
+        current_max, global_max = nums[0], nums[0]
+        for num in nums[1:]:
+            if current_max > 0:
+                current_max += num
+            else:
+                current_max = num
+            if current_max > global_max:
+                global_max = current_max
         return global_max
 
     # 54: /problems/spiral-matrix/
