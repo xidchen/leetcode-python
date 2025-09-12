@@ -424,6 +424,13 @@ def max_sub_array():
     print(f"Maximum subarray: {res}")
 
 
+# 54: /problems/spiral-matrix/
+def spiral_order():
+    matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    res = lc.spiral_order(matrix)
+    print(f"Spiral order: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -479,3 +486,4 @@ if __name__ == "__main__":
     solve_n_queens()
     total_n_queens()
     max_sub_array()
+    spiral_order()
