@@ -1,3 +1,5 @@
+from sympy import false
+
 from classes import ListNode, Node, TreeNode
 
 
@@ -948,6 +950,18 @@ class Leetcode:
             res += matrix.pop(0)
             matrix = list(zip(*matrix))[::-1]
         return res
+
+    # 55: /problems/jump-game/
+    @staticmethod
+    def can_jump(nums: list[int]) -> bool:
+        max_reach = 0
+        for i in range(len(nums)):
+            if i > max_reach:
+                return False
+            max_reach = max(max_reach, i + nums[i])
+            if max_reach >= len(nums) - 1:
+                return True
+        return True
 
     # 58: /problems/length-of-last-word/
     @staticmethod

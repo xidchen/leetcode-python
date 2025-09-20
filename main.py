@@ -426,9 +426,16 @@ def max_sub_array():
 
 # 54: /problems/spiral-matrix/
 def spiral_order():
-    matrix = [[1,2,3],[4,5,6],[7,8,9]]
+    matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     res = lc.spiral_order(matrix)
     print(f"Spiral order: {res}")
+
+
+# 55: /problems/jump-game/
+def can_jump():
+    nums = [3, 2, 1, 0, 4]
+    res = lc.can_jump(nums)
+    print(f"Jump game: {res}")
 
 
 if __name__ == "__main__":
@@ -487,3 +494,4 @@ if __name__ == "__main__":
     total_n_queens()
     max_sub_array()
     spiral_order()
+    can_jump()
