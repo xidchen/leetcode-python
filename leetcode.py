@@ -1,5 +1,3 @@
-from sympy import false
-
 from classes import ListNode, Node, TreeNode
 
 
@@ -963,6 +961,19 @@ class Leetcode:
                 return True
         return True
 
+    # 56: /problems/permutations/
+    @staticmethod
+    def merge_intervals(intervals: list[list[int]]) -> list[list[int]]:
+        intervals.sort(key=lambda x: x[0])
+        merged = [intervals[0]]
+        for current in intervals[1:]:
+            last_merged = merged[-1]
+            if current[0] <= last_merged[1]:
+                last_merged[1] = max(last_merged[1], current[1])
+            else:
+                merged.append(current)
+        return merged
+
     # 58: /problems/length-of-last-word/
     @staticmethod
     def length_of_last_word(s: str) -> int:
@@ -1023,7 +1034,9 @@ class Leetcode:
 
     # 88: /problems/merge-sorted-array/
     @staticmethod
-    def merge(nums1: list[int], m: int, nums2: list[int], n: int) -> None:
+    def merge_sorted_array(
+        nums1: list[int], m: int, nums2: list[int], n: int
+    ) -> None:
         nums1[m:] = nums2[:n]
         nums1.sort()
 

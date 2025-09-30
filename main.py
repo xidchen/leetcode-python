@@ -438,6 +438,13 @@ def can_jump():
     print(f"Jump game: {res}")
 
 
+# 56: /problems/merge-intervals/
+def merge_intervals():
+    intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
+    res = lc.merge_intervals(intervals)
+    print(f"Merge intervals: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -495,3 +502,4 @@ if __name__ == "__main__":
     max_sub_array()
     spiral_order()
     can_jump()
+    merge_intervals()
