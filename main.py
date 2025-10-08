@@ -445,6 +445,14 @@ def merge_intervals():
     print(f"Merge intervals: {res}")
 
 
+# 57: /problems/insert-interval/
+def insert_interval():
+    intervals = [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]]
+    new_intervals = [4, 8]
+    res = lc.insert_intervals(intervals, new_intervals)
+    print(f"Insert interval: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -503,3 +511,4 @@ if __name__ == "__main__":
     spiral_order()
     can_jump()
     merge_intervals()
+    insert_interval()
