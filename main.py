@@ -453,6 +453,13 @@ def insert_interval():
     print(f"Insert interval: {res}")
 
 
+# 58: /problems/length-of-last-word/
+def length_of_last_word():
+    s = "Hello World"
+    res = lc.length_of_last_word(s)
+    print(f"Length of last word: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -512,3 +519,4 @@ if __name__ == "__main__":
     can_jump()
     merge_intervals()
     insert_interval()
+    length_of_last_word()

@@ -999,7 +999,7 @@ class Leetcode:
     # 58: /problems/length-of-last-word/
     @staticmethod
     def length_of_last_word(s: str) -> int:
-        return len(s.strip().split(' ')[-1]) if ' ' in s else len(s)
+        return len(s.strip().split()[-1])
 
     # 62: /problems/unique-paths/
     @staticmethod
