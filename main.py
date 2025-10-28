@@ -460,6 +460,13 @@ def length_of_last_word():
     print(f"Length of last word: {res}")
 
 
+# 59: /problems/spiral-matrix-ii/
+def generate_matrix():
+    n = 3
+    res = lc.generate_matrix(n)
+    print(f"Generate matrix: {res}")
+
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -520,3 +527,4 @@ if __name__ == "__main__":
     merge_intervals()
     insert_interval()
     length_of_last_word()
+    generate_matrix()
