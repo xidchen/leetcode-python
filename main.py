@@ -467,6 +467,13 @@ def generate_matrix():
     print(f"Generate matrix: {res}")
 
 
+# 60: /problems/permutation-sequence/
+def get_permutation():
+    n = 4
+    k = 9
+    res = lc.get_permutation(n, k)
+    print(f"Permutation sequence: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -528,3 +535,4 @@ if __name__ == "__main__":
     insert_interval()
     length_of_last_word()
     generate_matrix()
+    get_permutation()

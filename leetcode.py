@@ -1026,6 +1026,22 @@ class Leetcode:
             left += 1
         return matrix
 
+    # 60: /problems/permutation-sequence/
+    @staticmethod
+    def get_permutation(n: int, k: int) -> str:
+        factorials = [1]
+        for i in range(1, n):
+            factorials.append(factorials[-1] * i)
+        numbers = list(range(1, n + 1))
+        k -= 1
+        res = []
+        for i in range(n, 0, -1):
+            idx = k // factorials[i - 1]
+            res.append(str(numbers[idx]))
+            numbers.pop(idx)
+            k %= factorials[i - 1]
+        return ''.join(res)
+
     # 62: /problems/unique-paths/
     @staticmethod
     def unique_paths(m: int, n: int) -> int:
