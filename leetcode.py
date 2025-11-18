@@ -1042,6 +1042,28 @@ class Leetcode:
             k %= factorials[i - 1]
         return ''.join(res)
 
+    # 61: /problems/rotate-list/
+    @staticmethod
+    def rotate_right(head: ListNode, k: int) -> ListNode:
+        if not head or not head.next or k == 0:
+            return head
+        length = 1
+        tail = head
+        while tail.next:
+            tail = tail.next
+            length += 1
+        k %= length
+        if k == 0:
+            return head
+        tail.next = head
+        steps_to_new_tail = length - k - 1
+        new_tail = head
+        for _ in range(steps_to_new_tail):
+            new_tail = new_tail.next
+        new_head = new_tail.next
+        new_tail.next = None
+        return new_head
+
     # 62: /problems/unique-paths/
     @staticmethod
     def unique_paths(m: int, n: int) -> int:

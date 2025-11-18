@@ -474,6 +474,14 @@ def get_permutation():
     res = lc.get_permutation(n, k)
     print(f"Permutation sequence: {res}")
 
+# 61: /problems/rotate-list/
+def rotate_right():
+    head = lc.list_to_linked_list([1, 2, 3, 4, 5])
+    k = 2
+    res_linked_list = lc.rotate_right(head, k)
+    res = lc.linked_list_to_list(res_linked_list)
+    print(f"Rotate right: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -536,3 +544,4 @@ if __name__ == "__main__":
     length_of_last_word()
     generate_matrix()
     get_permutation()
+    rotate_right()
