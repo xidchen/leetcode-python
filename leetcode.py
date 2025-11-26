@@ -1067,16 +1067,8 @@ class Leetcode:
     # 62: /problems/unique-paths/
     @staticmethod
     def unique_paths(m: int, n: int) -> int:
-        d = {}
-
-        def dp(x: int, y: int) -> int:
-            if x == 1 or y == 1:
-                return 1
-            if (x, y) not in d:
-                d[x, y] = dp(x, y - 1) + dp(x - 1, y)
-            return d[x, y]
-
-        return dp(m, n)
+        import math
+        return math.comb(m + n - 2, n - 1)
 
     # 66: /problems/plus-one/
     @staticmethod

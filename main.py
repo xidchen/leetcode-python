@@ -482,6 +482,13 @@ def rotate_right():
     res = lc.linked_list_to_list(res_linked_list)
     print(f"Rotate right: {res}")
 
+# 62: /problems/unique-paths/
+def unique_paths():
+    m = 3
+    n = 7
+    res = lc.unique_paths(m, n)
+    print(f"Unique paths: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -545,3 +552,4 @@ if __name__ == "__main__":
     generate_matrix()
     get_permutation()
     rotate_right()
+    unique_paths()
