@@ -489,6 +489,12 @@ def unique_paths():
     res = lc.unique_paths(m, n)
     print(f"Unique paths: {res}")
 
+# 63: /problems/unique-paths-ii/
+def unique_paths_with_obstacles():
+    obstacle_grid = [[0, 0, 0], [0, 1, 0], [0, 0, 0]]
+    res = lc.unique_paths_with_obstacles(obstacle_grid)
+    print(f"Unique paths II: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -553,3 +559,4 @@ if __name__ == "__main__":
     get_permutation()
     rotate_right()
     unique_paths()
+    unique_paths_with_obstacles()

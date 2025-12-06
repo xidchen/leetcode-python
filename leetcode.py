@@ -1070,6 +1070,22 @@ class Leetcode:
         import math
         return math.comb(m + n - 2, n - 1)
 
+    # 63: /problems/unique-paths-ii/
+    @staticmethod
+    def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
+        if not obstacle_grid or obstacle_grid[0][0] == 1:
+            return 0
+        m, n = len(obstacle_grid), len(obstacle_grid[0])
+        dp = [0] * n
+        dp[0] = 1
+        for i in range(m):
+            for j in range(n):
+                if obstacle_grid[i][j] == 1:
+                    dp[j] = 0
+                elif j > 0:
+                    dp[j] += dp[j - 1]
+        return dp[-1]
+
     # 66: /problems/plus-one/
     @staticmethod
     def plus_one(digits: list[int]) -> list[int]:
