@@ -945,8 +945,14 @@ class Leetcode:
     def spiral_order(matrix: list[list[int]]) -> list[int]:
         res = []
         while matrix:
-            res += matrix.pop(0)
-            matrix = list(zip(*matrix))[::-1]
+            res.extend(matrix.pop(0))
+            rows = len(matrix)
+            cols = len(matrix[0]) if rows else 0
+            rotated = [[0] * rows for _ in range(cols)]
+            for i in range(rows):
+                for j in range(cols):
+                    rotated[cols - j - 1][i] = matrix[i][j]
+            matrix = rotated
         return res
 
     # 55: /problems/jump-game/
