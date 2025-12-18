@@ -495,6 +495,12 @@ def unique_paths_with_obstacles():
     res = lc.unique_paths_with_obstacles(obstacle_grid)
     print(f"Unique paths II: {res}")
 
+# 64: /problems/minimum-path-sum/
+def min_path_sum():
+    grid = [[1, 3, 1], [1, 5, 1], [4, 2, 1]]
+    res = lc.min_path_sum(grid)
+    print(f"Minimum path sum: {res}")
+
 if __name__ == "__main__":
     lc = leetcode.Leetcode()
     two_sum()
@@ -560,3 +566,4 @@ if __name__ == "__main__":
     rotate_right()
     unique_paths()
     unique_paths_with_obstacles()
+    min_path_sum()

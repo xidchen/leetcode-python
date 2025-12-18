@@ -1092,6 +1092,19 @@ class Leetcode:
                     dp[j] += dp[j - 1]
         return dp[-1]
 
+    # 64: /problems/minimum-path-sum/
+    @staticmethod
+    def min_path_sum(grid: list[list[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        for i in range(1, m):
+            grid[i][0] += grid[i - 1][0]
+        for j in range(1, n):
+            grid[0][j] += grid[0][j - 1]
+        for i in range(1, m):
+            for j in range(1, n):
+                grid[i][j] += min(grid[i - 1][j], grid[i][j - 1])
+        return grid[-1][-1]
+
     # 66: /problems/plus-one/
     @staticmethod
     def plus_one(digits: list[int]) -> list[int]:
